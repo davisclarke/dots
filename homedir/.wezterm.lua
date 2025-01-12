@@ -52,7 +52,7 @@ config.show_new_tab_button_in_tab_bar = false
 
 -- Scrollback
 config.scrollback_lines = 4000
-config.enable_scrollbar = true
+config.enable_scroll_bar = true
 
 -- Inactive Window Behavior
 config.inactive_pane_hsb = {
@@ -137,22 +137,22 @@ config.keys = {
 	{
 		key = "H",
 		mods = "ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Left", 10 }),
+		action = act.AdjustPaneSize({ "Left", 5 }),
 	},
 	{
 		key = "J",
 		mods = "ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Down", 10 }),
+		action = act.AdjustPaneSize({ "Down", 5 }),
 	},
 	{
 		key = "K",
 		mods = "ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Up", 10 }),
+		action = act.AdjustPaneSize({ "Up", 5 }),
 	},
 	{
 		key = "L",
 		mods = "ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Right", 10 }),
+		action = act.AdjustPaneSize({ "Right", 5 }),
 	},
 	{
 		key = "r",
