@@ -1,0 +1,162 @@
+* {
+	font-family: "MesloLGS Nerd Font";
+	min-height: 0;
+	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+	/*font-size: %;*/
+	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+
+window#waybar {
+  	/*background: transparent;*/
+ 	/*border: 0.5px solid #3f3f48;*/
+ 	border: 0.5px solid #5f5f68;
+	background-color: rgb(31, 31, 40); 
+}
+
+/*window#waybar.hidden {*/
+/*  	opacity: 0.2;*/
+/*}*/
+/**/
+/*window#waybar.empty,*/
+/*window#waybar.empty #window {*/
+/*    background: rgba(31, 31, 40, 0.70); */
+/*    padding: 0px;*/
+/*    border: 0px;*/
+/*}*/
+
+#taskbar button,
+#workspaces button {
+	color: #5f5f78;
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    transition: none;
+}
+
+#workspaces button.focused { 
+  /*color: #7e9cd8;*/
+  color: #dcd7ba;
+}
+
+#workspaces button.urgent {
+	color: #c34043;
+}
+
+#backlight,
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#memory,
+#mode,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#pulseaudio-slider,
+#taskbar button,
+#taskbar,
+#temperature,
+#tray,
+#window,
+#wireplumber,
+#custom-swaync {
+	/*background: rgb(31, 31, 40);*/
+	color: #dcd7ba;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 10px;
+	padding-left: 10px;
+  
+}
+#workspaces {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+/*-----Indicators----*/
+/*#bluetooth {*/
+/*  color: #7e9cd8;*/
+/*}*/
+/**/
+/*#backlight {*/
+/*  color: #c0a36e;*/
+/*}*/
+/**/
+/*#battery {*/
+/*  color: #c0a36e;*/
+/*}*/
+/**/
+#battery.critical:not(.charging) {
+  color: #c34043;
+}
+/**/
+/*#battery.good.plugged {*/
+/*  color: #7e9cd8;*/
+/*}*/
+/**/
+/*#clock.time {*/
+/*  color: #c0a36e;*/
+/*}*/
+/**/
+/*#clock.year {*/
+/*  color: #76946a;*/
+/*}*/
+/**/
+/*#custom-swaync {*/
+/*  color: #7e9cd8;*/
+/*}*/
+/**/
+#custom-swaync.dnd-notification, #custom-swaync.dnd-none {
+  color: #c34043;
+}
+
+#custom-swaync.notification {
+  color: #957fb8;
+}
+
+/*#cpu {*/
+/*  color: #76946a;*/
+/*}*/
+/**/
+/*#memory {*/
+/*  color: #7e9cd8;*/
+/*}*/
+/**/
+/*#temperature {*/
+/*  color: #c34043;*/
+/*}*/
+/**/
+/*#tray > .passive {*/
+/*  -gtk-icon-effect: dim;*/
+/*}*/
+/*#tray > .needs-attention {*/
+/*  -gtk-icon-effect: highlight;*/
+/*}*/
+/**/
+/**/
+/*#pulseaudio {*/
+/*  color: #76946a;*/
+/*}*/
+/**/
+/*#pulseaudio.bluetooth {*/
+/*  color: #76946a;*/
+/*}*/
+#pulseaudio.muted {
+  color: #c34043;
+}
+
+/*#network {*/
+/*  color: #6a9589;*/
+/*}*/
+#network.disconnected,
+#network.disabled {
+  color: #c34043;
+}
+
+#custom-separator {
+  color: #c0a36e
+}

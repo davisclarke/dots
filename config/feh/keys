@@ -1,0 +1,47 @@
+# feh key configuration.
+# Comments start with a # sign, do not use them mid-line.
+# Each line must be blank, a comment, or a key definition.
+#
+# key definition: <action name> <key1> [<key2> [<key3>]]
+#
+# Each <key> is an X11 keysym (as output by xev) with optional modifier.
+# For instance, C-x would be Ctrl+X, or 4-space Mod4+Space
+
+# Examples for vim-like menu bindings on a qwerty keyboard:
+# menu_parent H Left
+# menu_child  L Right
+# menu_down   K Down
+# menu_up     J Up
+# menu_select space Return
+
+# Same for image navigation ...
+next_img H Right space
+prev_img L Left BackSpace
+
+# and image movement
+scroll_up    k C-Up
+scroll_down  j C-Down
+scroll_left  h C-Left
+scroll_right l C-Right
+
+scroll_right_page C-l 
+scroll_left_page C-h
+scroll_down_page C-j
+scroll_up_page C-k
+# File deletion
+# remove     d   Delete
+# delete   C-d C-Delete
+
+# remove now conflicts with toggle_filenames, so change that
+toggle_filenames n
+
+# zooming
+zoom_in  C-Up f
+zoom_out C-Down a
+zoom_default d
+zoom_fit s
+zoom_fill w 
+
+# I only hit these accidentally
+save_image
+save_filelist

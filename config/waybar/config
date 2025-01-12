@@ -1,0 +1,47 @@
+{
+"include": [
+  "$HOME/.config/waybar/modules",
+  ],
+"start_hidden": false,
+"layer": "top",
+"exclusive": true,
+"passthrough": false,
+"position": "bottom",
+"spacing": 3,
+"fixed-center": true,
+"ipc": true,
+"bar_id":  "bar-0",
+"margin-left": 0,
+"margin-top": 0,
+"margin-bottom": 0,
+"margin-right": 0,
+
+"modules-right": [
+  "bluetooth",
+  "network",
+	"custom/separator",
+	"temperature",
+	"memory",
+	"cpu",
+	"custom/separator",
+	"backlight",
+	"pulseaudio",
+	"custom/separator",
+	"battery",
+	],
+
+"modules-left": [
+	"sway/workspaces",	
+  	"sway/mode",
+	],
+
+
+"modules-center": [
+  "custom/swaync",
+  "clock#time",
+	"clock#year",
+	], 
+}
+
+"sway/window": { "icon": false, "max-length": 15
+},

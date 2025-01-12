@@ -1,0 +1,30 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(31,31,40,1);
+  font-family: MesloLGS Nerd Font;
+  font-size: 100pt;
+  
+}
+
+button {
+    border-radius: 50px;
+    margin: 50px;
+    padding: 0px 0px 130px 0px;
+    border-color: #dcd7ba;
+    text-decoration-color: #dcd7ba;
+    color: #dcd7ba;
+    background-color: rgba(31,31,40,0.8);
+    border-style: solid;
+    border-width: 10px;
+}
+
+button:focus, button:active {
+	border-color: #76946a;
+  color: #76946a;
+  /*box-shadow: 0 0 30px #7e9cd8;*/
+  outline: none;
+}

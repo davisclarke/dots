@@ -1,0 +1,12 @@
+
+[Unit]
+Description=Local system suspend actions, put in /etc/systemd/system/sleep.target.wants/
+Before=sleep.target
+
+[Service]
+Type=simple
+ExecStartPre=-/usr/bin/sleep 1
+ExecStart=-/usr/bin/true
+
+[Install]
+WantedBy=sleep.target

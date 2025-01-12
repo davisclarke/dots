@@ -1,0 +1,20 @@
+{
+    "action" : "systemctl reboot",
+    "text" : "󰜉",
+    "keybind" : "r"
+}
+{
+    "action" : "systemctl poweroff",
+    "text" : "󰐥",
+    "keybind" : "s"
+}
+{
+    "action" : "loginctl kill-session $XDG_SESSION_ID",
+    "text" : "󰍃",
+    "keybind" : "l"
+}
+{
+    "action" : "systemctl suspend",
+    "text" : "󰤄",
+    "keybind" : "u"
+}
