@@ -11,7 +11,8 @@ window {
 }
 
 button {
-    border-radius: 50px;
+    /*border-radius: 50px;*/
+    border-radius: 0px;
     margin: 50px;
     padding: 0px 0px 130px 0px;
     border-color: #dcd7ba;
