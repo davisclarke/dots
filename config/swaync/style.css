@@ -1,95 +1,303 @@
+@define-color cc-bg rgb(31,31,40);
+@define-color noti-border-color rgb(126,156, 216);
+@define-color noti-bg rgb(31,31,40);
+@define-color noti-bg-darker rgb(31,31,40);
+@define-color noti-bg-hover rgb(31,31,40);
+@define-color noti-bg-focus rgb(195,64,67);
+@define-color noti-close-bg rgba(255, 255, 255, 0.1);
+@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
+@define-color text-color rgb(220,215,186);
+@define-color text-color-disabled rgb(220,215,186);
+@define-color bg-selected rgb(0, 128, 255);
+
 * {
   font-family: MesloLGS Nerd Font;
+  font-size: 12px;
 }
 
-
-.control-center {
-  background: alpha(#1f1f28, 0.7);
-  background: #1f1f28;
-  border: 2px solid #6a9589;
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: @noti-bg-darker;
 }
 
-
-.widget-buttons-grid {
-  font-size: 36px;
-  background: transparent;
+.notification-row {
+  outline: none;
+  margin: 0px;
+  padding: 0px;
 }
-.widget-buttons-grid>flowbox>flowboxchild>button {
-  padding: 6px 62px;
-  background: transparent;
-  border-radius: 8px;
-}
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  color: alpha(#1f1f28, 0.7);
-  color: #1f1f28;
-  background: #76946a;
-}
-.widget-buttons-grid>flowbox>flowboxchild:last-child {
-  border-left: 2px solid #dcd7ba;
-}
-.widget-buttons-grid>flowbox>flowboxchild:first-child {
-  border-right: 2px solid #dcd7ba;
-}
-
-
-.widget-dnd {
-  color: #dcd7ba;
-  background: transparent;
-  font-size: 24px;
-}
-.widget-dnd>switch {
-  background: #c34043;
-  border-radius: 16px;
-}
-.widget-dnd > switch:hover {
-  background: #76946a;
-}
-.widget-dnd>switch:checked {
-  background: #c34043;
-}
-.widget-dnd > switch:checked:hover {
-  background: #c34043;
-}
-
-
-.widget-title {
-  color: #dcd7ba;
-  font-size: 24px;
-  border-top: 2px solid #dcd7ba;
-  padding: 16px;
-}
-.widget-title button {
-  border-radius: 16px;
-  color: #3f3f58;
-  background: #d79921;
-  padding: 16px;
-  font-size: 24px
-}
-.widget-title button:hover {
-  background: #c0a36e;
-}
-.widget-title button:active {
-  background: #c34043;
-}
-
 
 .notification {
-  border: none;
-  box-shadow: none;
-  color: #dcd7ba;
-  opacity: 1;
+  background: @cc-bg;
+  border: 2px solid #7e9cd8;
+  border-radius: 0px;
+  margin: 1px 0px 1px 0px;
+}
+
+.notification-content {
+  background: @cc-bg;
+}
+
+.notification-default-action {
+  margin: 0;
+  padding: 0;
+  border-radius: 0px;
 }
 
 
-.close-button {
-  border: none;
-  margin: 4px;
-  background: #c34043;
-  color: #c4746e;
+/* no mouse, ty */
+.close-button,
+.close-button:hover {
+  background: transparent;
+  color: transparent;
 }
 
+.notification-action {
+  border: 2px solid #7e9cd8;
+  border-top: none;
+  border-radius: 0px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  color: #7e9cd8;
+  background: @cc-bg;
+}
+
+.notification-default-action {
+  border-radius: 5px;
+  margin: 0px;
+}
+
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.notification-action:first-child {
+  border-bottom-left-radius: 10px;
+  background: #1b1b2b;
+}
+
+.notification-action:last-child {
+  border-bottom-right-radius: 10px;
+  background: #1b1b2b;
+}
+
+.inline-reply {
+  margin-top: 8px;
+}
+
+.inline-reply-entry {
+  background: @noti-bg-darker;
+  color: @text-color;
+  caret-color: @text-color;
+  border: 1px solid @noti-border-color;
+  border-radius: 5px;
+}
+
+.inline-reply-button {
+  margin-left: 4px;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  border-radius: 5px;
+  color: @text-color;
+}
+
+.inline-reply-button:disabled {
+  background: initial;
+  color: @text-color-disabled;
+  border: 1px solid transparent;
+}
+
+.inline-reply-button:hover {
+  background: @noti-bg-hover;
+}
+
+.image {
+  border-radius: 0px;
+  margin-right: 10px;
+}
+
+.summary {
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  color: @text-color;  
+  text-shadow: none;
+}
+
+.time {
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  color: @text-color;
+  text-shadow: none;
+  margin-right: 18px;
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 400;
+  background: transparent;
+  color: @text-color;
+  text-shadow: none;
+}
+
+.control-center {
+  background: @cc-bg;
+  border: 2px solid #7e9cd8;
+  border-radius: 0px;
+}
+
+.control-center-list {
+  background: transparent;
+}
 
 .control-center-list-placeholder {
-  color: #dcd7ba;
-  opacity: 1;
+  opacity: 0.5;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+.blank-window {
+  background: alpha(black, 0.1);
+}
+
+.widget-title {
+  color: #7e9cd8;
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+.widget-title > button {
+  font-size: 1rem;
+  color: @text-color;
+  text-shadow: none;
+  background: @noti-bg;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+.widget-title > button:hover {
+  background: #7e9cd8;
+  color: @cc-bg;
+}
+
+.widget-dnd {
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  border-radius: 5px;
+  font-size: large;
+  color: #7e9cd8;
+}
+
+.widget-dnd > switch {
+  border-radius: 5px;
+  background: #7e9cd8;
+}
+
+.widget-dnd > switch:checked {
+  background: #c34043;
+  border: 1px solid #f7768e;
+}
+
+.widget-dnd > switch slider,
+.widget-dnd > switch:checked slider {
+  background: @cc-bg;
+  border-radius: 5px;
+}
+
+.widget-label {
+  margin: 10px 10px 5px 10px;
+}
+
+.widget-label > label {
+  font-size: 1rem;
+  color: @text-color;
+}
+
+.widget-mpris {
+  color: @text-color;
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+
+.widget-mpris > box > button {
+  border-radius: 5px;
+}
+
+.widget-mpris-player {
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
+}
+
+.widget-buttons-grid {
+  font-size: x-large;
+  padding: 5px;
+  margin: 10px 10px 5px 10px;
+  border-radius: 0px;
+  background: @noti-bg-darker;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 3px;
+  background: @cc-bg;
+  border-radius: 0px;
+  color: @text-color;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: #c34043;
+  color: @cc-bg;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: #957fb8;
+  color: @cc-bg;
+}
+
+.widget-menubar > box > .menu-button-bar > button {
+  border: none;
+  background: transparent;
+}
+
+.topbar-buttons > button {
+  border: none;
+  background: transparent;
+}
+
+.widget-volume {
+  background: @noti-bg-darker;
+  padding: 5px;
+  margin: 5px 10px;
+  border-radius: 0px;
+  font-size: 2rem;
+  color: #7e9cd8;
+}
+
+.widget-backlight {
+  background: @noti-bg-darker;
+  padding: 5px;
+  margin: 5px 10px;
+  border-radius: 0px;
+  font-size: 2rem;
+  color: #7e9cd8;
 }

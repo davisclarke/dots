@@ -40,7 +40,7 @@ window {
     cursor:                     "default";
     spacing:                    0px;
     border:                     2px 2px 2px 2px;
-    border-radius:              5px;
+    // border radius:              5px;
     location:                   center;
     anchor:                     center;
 
@@ -65,7 +65,7 @@ inputbar {
     padding:                     10px 10px 10px 10px;
     margin:                      10px;
     background-color:            transparent;
-    border-radius:               5px;
+    // border radius:               5px;
     orientation:                 horizontal;
     children:                    ["entry", "dummy", "mode-switcher" ];
 }
@@ -76,7 +76,7 @@ entry {
     expand:                      false;
     width:                       20%;
     padding:                     10px;
-    border-radius:               5px;
+    // border radius:               5px;
     background-color:            @selected;
     text-color:                  @text-selected;
     cursor:                      text;
@@ -127,7 +127,7 @@ mode-switcher{
 button {
     width:                       5%;
     padding:                     12px;
-    border-radius:               5px;
+    // border radius:               5px;
     background-color:            @text-selected;
     text-color:                  @text-color;
     cursor:                      pointer;
@@ -151,7 +151,7 @@ element {
     enabled:                     true;
     spacing:                     10px;
     padding:                     7px;
-    border-radius:               5px;
+    // border radius:               5px;
     background-color:            transparent;
     cursor:                      pointer;
 }
@@ -171,7 +171,7 @@ element normal.active {
 
 element selected.normal {
     border:                      1px;
-    border-radius:               5px;
+    // border radius:               5px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @selected;
@@ -219,7 +219,7 @@ message {
 }
 textbox {
     padding:                     12px;
-    border-radius:               5px;
+    // border radius:               5px;
     background-color:            @background-alt;
     text-color:                  @background;
     vertical-align:              0.5;
@@ -227,7 +227,7 @@ textbox {
 }
 error-message {
     padding:                     12px;
-    border-radius:               5px;
+    // border radius:               5px;
     background-color:            @background-alt;
     text-color:                  @background;
 }
