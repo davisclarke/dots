@@ -52,7 +52,6 @@ config.show_new_tab_button_in_tab_bar = false
 
 -- Scrollback
 config.scrollback_lines = 4000
-config.enable_scroll_bar = true
 
 -- Inactive Window Behavior
 config.inactive_pane_hsb = {
