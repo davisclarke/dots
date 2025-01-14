@@ -1,3 +1,5 @@
+include /etc/sway/config.d/*
+
 # Variables 
 set $mod Mod4
 set $left h
@@ -14,8 +16,10 @@ output * bg #1f1f28 solid_color
 # Xwayland
 xwayland enable
 
-exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+
 exec nm-applet --indicator
 exec swaync
 
@@ -59,6 +63,7 @@ exec swayidle -w \
           timeout 410 'swaymsg "output * power off"' \
           resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f --config $HOME/.config/sway/swaylock.config' 
+
 
 ### Keybinds ###
 # System 
@@ -193,9 +198,6 @@ smart_gaps on
 default_border pixel 1
 client.background #4f4f58
 client.focused #7e9cd8 #1f1f28 #7e9cd8 #4f4f58 #7e9cd8
-client.unfocused #8e9a7b #1f1f28 #dcd7ba #a292a1 
-client.focused_inactive #957fb8 #1f1f28 #7f7f98 #4f4f58 #7f7f98
+client.unfocused #5f5f68 #1f1f28 #dcd7ba #a292a1 #5f5f68
+client.focused_inactive #8f8fa8 #1f1f28 #8f8fa8 #4f4f58 #8f8fa8
 smart_borders on
-
-### Misc ###
-include /etc/sway/config.d/*
