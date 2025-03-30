@@ -1,5 +1,9 @@
 include /etc/sway/config.d/*
 
+# Colors handled by dark_theme.sh and light_theme.sh respectively
+# include /home/davisc/.config/sway/config.d/wave 
+include /home/davisc/.config/sway/config.d/zenwritten_dark 
+
 # Variables 
 set $mod Mod4
 set $left h
@@ -9,29 +13,23 @@ set $right l
 
 ### Startup ### 
 
-# Wallpaper 
-# output eDP-1 background #1f1f28
-output * bg #1f1f28 solid_color
-
 # Xwayland
 xwayland enable
 
-#
+# Dbus environment
 exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
-exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
 
-exec nm-applet --indicator
+# Notifications
 exec swaync
 
-exec blueman-applet
+# Gamma and nightshift
+exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
 
-exec gammastep -g 1.3 -t 3800:3800 -l 0:0 
+# Font
+font pango:FiraCode Nerd Font 10
 
-font pango:MesloLGS Nerd Font 10
-
-# Swap esc and CapsLock, make repeat delay slightly faster 
+# Swap esc and CapsLock via caps2escape, make repeat delay slightly faster 
 input "type:keyboard" {
-  xkb_options caps:escape
   repeat_delay 200
 
 }
@@ -50,20 +48,22 @@ input "2:10:TPPS/2_Elan_TrackPoint" pointer_accel 0.3
 exec wl-paste --type text --watch cliphist store 
 exec wl-paste --type image --watch cliphist store
 
-# Waybar 
-exec waybar 
-# May enable this again on startup at some point...
-
 # Qol thing. Idle inhibitor when playing media 
+# Is this messing stuff up???
 exec sway-audio-idle-inhibit
 
-# Idle 
+# Idle
+# Suspend times controlled by systemd. See /etc/systemd/logind.conf
+# exec swayidle idlehint 1
+# exec_always swayidle -w before-sleep 'swaylock -u -c 000000 -e' 
 exec swayidle -w \
-          timeout 400 'swaylock -f --config $HOME/.config/sway/swaylock.config' \
-          timeout 410 'swaymsg "output * power off"' \
-          resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -f --config $HOME/.config/sway/swaylock.config' 
+	timeout 400 'swaylock -f -u -c 000000 -e' \
+	timeout 410 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -u -c 000000 -e'
 
+bindsym $mod+b bar mode invisible 
+bindsym $mod+Space bar mode dock 
 
 ### Keybinds ###
 # System 
@@ -74,15 +74,6 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 2%+
 
-# Edit network
-bindsym $mod+t exec foot -e sh "$HOME/.config/sway/nm.sh" 
-bindsym $mod+b exec foot -e btop
-# foot has much more lightweight startup than wezterm, starting a wezterm instance
-# just for nmtui, btop, etc. would be overkill
-bindsym $mod+u exec blueman-manager
-
-# Toggle touchpad
-bindsym $mod+m input type:touchpad events toggle enabled disabled
 # Media control
 bindsym $mod+semicolon exec playerctl play-pause
 bindsym $mod+bracketright exec playerctl next
@@ -92,16 +83,21 @@ bindsym $mod+bracketleft exec playerctl previous
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy    
 
 # Logout 
-bindsym $mod+Shift+o exec wlogout -b 4 -B 300 -T 300 & 
+# bindsym $mod+o exec wlogout -b 4 -B 300 -T 300 & 
+mode "LOGOUT" {
+  bindsym r exec systemctl reboot
+  bindsym s exec systemctl poweroff
+  bindsym l exec loginctl kill-session $XDG_SESSION_ID
+  bindsym u mode "default", exec systemctl suspend, 
+  bindsym Escape mode "default"
+}
+bindsym $mod+o mode "LOGOUT"
 
-
-# Toggle waybar
-bindsym $mod+o exec killall -SIGUSR1 waybar || waybar
 
 # Launchers 
-bindsym $mod+q exec wezterm
-bindsym $mod+w exec firefox
-bindsym $mod+z exec sh $HOME/Zotero_linux-x86_64/zotero --ozone-platform-hint=auto
+bindsym $mod+q exec wezterm start -- fish -i -C nitch
+bindsym $mod+w exec floorp
+bindsym $mod+z exec zotero
 bindsym $mod+d exec rofi -show drun
 
 # Resize windows 
@@ -129,26 +125,65 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
+mode "PARENT" {
+  bindsym $left focus left, mode "default", focus child
+  bindsym $down focus down, mode "default", focus child
+  bindsym $up focus up, mode "default", focus child
+  bindsym $right focus right, mode "default", focus child
+
+  bindsym Shift+$left move left, mode "default", focus child 
+  bindsym Shift+$right move right, mode "default", focus child 
+  bindsym Shift+$down move down, mode "default", focus child
+  bindsym Shift+$up move up, mode "default", focus child
+
+  # Move focused parent container to workspace
+  bindsym 1 move container to workspace number 1, mode "default", focus child 
+  bindsym 2 move container to workspace number 2, mode "default", focus child 
+  bindsym 3 move container to workspace number 3, mode "default", focus child 
+  bindsym 4 move container to workspace number 4, mode "default", focus child 
+  bindsym 5 move container to workspace number 5, mode "default", focus child 
+  bindsym 6 move container to workspace number 6, mode "default", focus child 
+  bindsym 7 move container to workspace number 7, mode "default", focus child 
+  bindsym 8 move container to workspace number 8, mode "default", focus child 
+  bindsym 9 move container to workspace number 9, mode "default", focus child 
+  bindsym 0 move container to workspace number 10, mode "default", focus child 
+
+  bindsym p move container to workspace prev , mode "default", focus child 
+  bindsym n move container to workspace next, mode "default", focus child 
+
+  bindsym s split h
+  bindsym v split v
+
+  bindsym Escape mode "default", focus child
+
+  bindsym q exec wezterm start -- fish -i -C nitch
+  bindsym w exec floorp
+  bindsym z exec zotero
+}
+
+bindsym $mod+a focus parent, mode "PARENT"
+
 # Move windows 
 bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$right move right
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+
 
 # Splits
 bindsym $mod+x layout toggle splitv splith
-bindsym $mod+s split h
-bindsym $mod+v split v
+bindsym $mod+v split h
+bindsym $mod+s split v
 
 # Tabs
-bindsym $mod+a layout toggle tabbed split 
+bindsym $mod+tab layout toggle tabbed split 
 
 # Reload sway
 bindsym $mod+Shift+r reload
 
 # Notifications
-bindsym $mod+i exec swaync-client -t -sw
-bindsym $mod+Shift+i exec swaync-client -d -sw
+bindsym $mod+e exec swaync-client -t -sw
+bindsym $mod+Shift+e exec swaync-client -d -sw
 # Workspaces
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -181,23 +216,25 @@ bindsym $mod+n workspace next
 bindsym $mod+Shift+p move container to workspace prev 
 bindsym $mod+Shift+n move container to workspace next
 
-# Ditto
-bindsym $mod+Shift+tab workspace prev
-bindsym $mod+tab workspace next 
-
 # Full screen
 bindsym $mod+f fullscreen
 
+# Change colorscheme
+bindsym $mod+m exec sh /home/davisc/.config/sway/dark_theme.sh
+bindsym $mod+Shift+m exec sh /home/davisc/.config/sway/light_theme.sh
+
 ### Window behavior ###
 # Gaps
-gaps inner 3
-gaps outer 0
+gaps inner 8
+gaps outer 1
+gaps right -4
+gaps left -4
 smart_gaps on
 
 # Borders
 default_border pixel 1
-client.background #4f4f58
-client.focused #7e9cd8 #1f1f28 #7e9cd8 #4f4f58 #7e9cd8
-client.unfocused #5f5f68 #1f1f28 #dcd7ba #a292a1 #5f5f68
-client.focused_inactive #8f8fa8 #1f1f28 #8f8fa8 #4f4f58 #8f8fa8
 smart_borders on
+
+# Start wezterm on login
+workspace 1 
+exec wezterm start -- fish -i -C nitch 

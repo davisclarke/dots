@@ -1,0 +1,27 @@
+output * bg #f2ecbc solid_color
+
+client.focused #4d699b #d2cc9c #4d699b #d2cc9c #4d699b
+client.unfocused #d2cc9c #d2cc9c #545464 #d2cc9c #d2cc9c
+client.focused_inactive #77713f #f2ecbc #77713f #f2ecbc #77713f
+client.urgent #c84053 #f2ecbc #c84053 #f2ecbc #c84053
+
+bar {
+  position bottom
+  height 20
+  # mode invisible
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:FiraCode Nerd Font 12
+  status_command i3status-rs $HOME/.config/status-rs/status-rs-lotus.toml
+
+  colors {
+      statusline #d2cc9c
+      background #d2cc9c
+      inactive_workspace #d2cc9c #d2cc9c #545464
+      focused_workspace #b2ac7c #b2ac7c #545464
+      urgent_workspace #d2cc9c #d2cc9c #c84053
+      separator #dcd7ba }
+}
+
+

@@ -1,0 +1,25 @@
+output * bg #191919 solid_color
+
+bar {
+  position bottom
+  height 20
+  # mode invisible
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:FiraCode Nerd Font 12
+  status_command i3status-rs $HOME/.config/status-rs/status-rs-zenwritten-dark.toml
+
+  colors {
+      statusline #303030
+      background #303030
+      inactive_workspace #303030 #303030 #BBBBBB
+      focused_workspace #303030 #BBBBBB #303030
+      urgent_workspace #de6e7c #de6e7c #303030
+      separator #888F94 }
+}
+
+client.focused #6099C0 #303030 #6099C0 #303030 #6099C0
+client.unfocused #303030 #303030 #BBBBBB #303030 #303030
+client.focused_inactive #B77E64 #303030 #B77E64 #303030 #B77E64
+client.urgent #de6e7c #303030 #de6e7c #303030 #de6e7c

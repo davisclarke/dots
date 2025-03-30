@@ -1,0 +1,35 @@
+[calendars]
+
+[[p]]
+path = /home/davisc/.calendars/personal/clarked126@gmail.com
+type = calendar
+color = dark magenta 
+
+[[acd]]
+path = /home/davisc/.calendars/personal/86a9cfa988cf31af4d1fdaabfc97362efb25d67aed728afdc7540c457162d301@group.calendar.google.com
+type = calendar
+color = light blue
+
+[[rr]]
+path = /home/davisc/.calendars/personal/45aa20daf527f3b118fda0e64144820cdd79a546d3fc20bfa2a8e668c21374e4@group.calendar.google.com/
+type = calendar
+color = dark green 
+
+
+[locale]
+timeformat = %H.%M
+dateformat = %d/%m/%/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H.%M
+longdatetimeformat = %d/%m/%Y %H.%M
+
+[default]
+default_calendar = p
+
+[highlight_days]
+ color = "dark green"
+ multiple = "dark red"
+
+[view]
+ agenda_event_format={calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{description-separator}{reset}
+ frame = "width"

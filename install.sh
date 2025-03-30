@@ -31,9 +31,10 @@ systemctl enable --now paccache.timer
 cp -r ./config/. $HOME/.config/ 
 cp -r ./homedir/. $HOME/
 mkdir $HOME/repos
+#
+# cp -r ./sddm/sddm-astronaut-theme/ /usr/share/sddm/themes/ 
+# cp ./sddm/default.conf /usr/lib/sddm/sddm.conf.d/
 
-cp -r ./sddm/sddm-astronaut-theme/ /usr/share/sddm/themes/ 
-cp ./sddm/default.conf /usr/lib/sddm/sddm.conf.d/
 
 # mkdir -p ~/miniconda3
 #   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
