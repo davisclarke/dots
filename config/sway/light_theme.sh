@@ -3,12 +3,12 @@
 # Change a few lines to match scheme
 sed -i "s/vim.opt.background = 'dark'/vim.opt.background = 'light'/g" /home/davisc/.config/nvim/init.lua
 sed -i 's/use_dark_theme = true/use_dark_theme = false/g' /home/davisc/.wezterm.lua
-sed -i 's/zenwritten_dark/zenwritten_light/g' /home/davisc/.config/sway/config
-sed -i 's/zenwritten-dark.rasi/zenwritten-light.rasi/g' /home/davisc/.config/rofi/config.rasi
+sed -i 's/melange_dark/melange_light/g' /home/davisc/.config/sway/config
+sed -i 's/melange-dark.rasi/melange-light.rasi/g' /home/davisc/.config/rofi/config.rasi
 sed -i 's/"mode": "dark"/"mode": "light"/g' /home/davisc/.config/zed/settings.json
 sed -i 's/kanagawa-wave.css/kanagawa-lotus.css/g' /home/davisc/.config/swaync/style.css
-gsettings set org.gnome.desktop.interface gtk-theme "zenwritten-light"
-gsettings set org.gnome.desktop.interface icon-theme 'zenwritten-light'
+gsettings set org.gnome.desktop.interface gtk-theme "melange-light"
+gsettings set org.gnome.desktop.interface icon-theme 'melange-light'
 
 swaymsg reload
 

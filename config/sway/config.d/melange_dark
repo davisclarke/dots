@@ -1,0 +1,25 @@
+output * bg #292522 solid_color
+
+bar {
+  position bottom
+  height 20
+  # mode invisible
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:FiraCode Nerd Font 12
+  status_command i3status-rs $HOME/.config/status-rs/melange/status-rs-melange-dark.toml
+
+  colors {
+      statusline #403A36
+      background #403A36
+      inactive_workspace #403A36 #403A36 #ECE1D7
+      focused_workspace #403A36 #ECE1D7 #403A36
+      urgent_workspace #BD8183 #BD8183 #403A36
+      separator #888F94 }
+}
+
+client.focused #7F91B2 #403A36 #7F91B2 #403A36 #7F91B2
+client.unfocused #403A36 #403A36 #ECE1D7 #403A36 #403A36
+client.focused_inactive #E49B5D #403A36 #E49B5D #403A36 #E49B5D
+client.urgent #BD8183 #403A36 #BD8183 #403A36 #BD8183
