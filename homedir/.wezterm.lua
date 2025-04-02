@@ -32,7 +32,7 @@ config.unix_domains = {
 }
 
 -- Colors
-local use_dark_theme = true
+local use_dark_theme = false
 -- NOTE: Above line is controlled by ~/.config/sway/dark_theme.sh and ~/.config/sway/light_theme.sh
 
 local function tab_title(tab_info)
@@ -77,47 +77,79 @@ config.use_fancy_tab_bar = false
 -- config.tab_bar_at_bottom = true
 if use_dark_theme then
 	config.colors = {
-		foreground = "#BBBBBB",
-		background = "#191919",
-		cursor_fg = "#191919",
-		cursor_bg = "#C9C9C9",
-		cursor_border = "#191919",
-		selection_fg = "#BBBBBB",
-		selection_bg = "#404040",
-		ansi = { "#191919", "#DE6E7C", "#819B69", "#B77E64", "#6099C0", "#B279A7", "#66A5AD", "#BBBBBB" },
-		-- Replace #3D3839
-		brights = { "#8E8E8E", "#E8838F", "#8BAE68", "#D68C67", "#61ABDA", "#CF86C1", "#65B8C1", "#8E8E8E" },
-		split = "#303030",
+		foreground = "#ECE1D7",
+		background = "#292522",
+		cursor_bg = "#ECE1D7",
+		cursor_border = "#ECE1D7",
+		cursor_fg = "#292522",
+		selection_bg = "#403A36",
+		selection_fg = "#ECE1D7",
+		split = "#403A36",
+		ansi = {
+			"#34302C",
+			"#BD8183",
+			"#78997A",
+			"#E49B5D",
+			"#7F91B2",
+			"#B380B0",
+			"#7B9695",
+			"#C1A78E",
+		},
+		brights = {
+			"#867462",
+			"#D47766",
+			"#85B695",
+			"#EBC06D",
+			"#A3A9CE",
+			"#CF9BC2",
+			"#89B3B6",
+			"#ECE1D7",
+		},
 		tab_bar = {
-			inactive_tab_edge = "#888F94",
-			background = "#303030",
+			inactive_tab_edge = "#403A36",
+			background = "#403A36",
 		},
 	}
-	-- config.colors = kanagawa_wave_colors
-	-- tab_theme("#26262d", "#16161d", "#c8c093")
-	tab_theme("#303030", "#303030", "#BBBBBB", "#BBBBBB")
-	config.color_scheme = "zenbones_dark"
+	tab_theme("#403A36", "#403A36", "#ECE1D7", "#ECE1D7")
 else
 	config.colors = {
-		foreground = "#353535",
-		background = "#EEEEEE",
-		cursor_fg = "#EEEEEE",
-		cursor_bg = "#353535",
-		cursor_border = "#EEEEEE",
-		selection_fg = "#353535",
-		selection_bg = "#D7D7D7",
-		split = "#BBBBBB",
-		ansi = { "#EEEEEE", "#A8334C", "#4F6C31", "#944927", "#286486", "#88507D", "#3B8992", "#353535" },
-		-- replace C6C3C3
-		brights = { "#5c5c5c", "#94253E", "#3F5A22", "#803D1C", "#1D5573", "#7B3B70", "#2B747C", "#5C5C5C" },
+		foreground = "#54433A",
+		background = "#F1F1F1",
+		cursor_bg = "#54433A",
+		cursor_border = "#54433A",
+		cursor_fg = "#F1F1F1",
+		selection_bg = "#D9D3CE",
+		selection_fg = "#54433A",
+		split = "#C1C1C1",
+		ansi = {
+			"#E9E1DB",
+			"#C77B8B",
+			"#6E9B72",
+			"#BC5C00",
+			"#7892BD",
+			"#BE79BB",
+			"#739797",
+			"#7D6658",
+		},
+		brights = {
+			"#A98A78",
+			"#BF0021",
+			"#3A684A",
+			"#A06D00",
+			"#465AA4",
+			"#904180",
+			"#3D6568",
+			"#54433A",
+		},
 		tab_bar = {
-			inactive_tab_edge = "#888F94",
-			background = "#BBBBBB",
+			inactive_tab_edge = "#D9D3CE",
+			background = "#C1C1C1",
 		},
 	}
-	-- config.color_scheme = "zenbones"
-	tab_theme("#BBBBBB", "#BBBBBB", "#353535", "#353535")
+
+	tab_theme("#C1C1C1", "#C1C1C1", "#54433A", "#54433A")
 end
+
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 32
 config.show_new_tab_button_in_tab_bar = false
@@ -182,23 +214,7 @@ config.keys = {
 		mods = "LEADER|SHIFT",
 		action = act.MoveTabRelative(1),
 	},
-	{
-		key = "h",
-		mods = "ALT",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	-- {
-	-- 	key = "h",
-	-- 	mods = "ALT",
-	-- 	action = wezterm.action_callback(function(window, pane)
-	-- 		local tab = window:mux_window():active_tab()
-	-- 		if tab:get_pane_direction("Left") ~= nil then
-	-- 			window:perform_action(act.ActivatePaneDirection("Left"), pane)
-	-- 		else
-	-- 			window:perform_action(act.ActivateTabRelative(-1), pane)
-	-- 		end
-	-- 	end),
-	-- },
+	{ key = "h", mods = "ALT", action = act.ActivatePaneDirection("Left") },
 	{ key = "j", mods = "ALT", action = act.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "ALT", action = act.ActivatePaneDirection("Up") },
 	{
@@ -206,18 +222,6 @@ config.keys = {
 		mods = "ALT",
 		action = act.ActivatePaneDirection("Right"),
 	},
-	-- {
-	-- 	key = "l",
-	-- 	mods = "ALT",
-	-- 	action = wezterm.action_callback(function(window, pane)
-	-- 		local tab = window:mux_window():active_tab()
-	-- 		if tab:get_pane_direction("Right") ~= nil then
-	-- 			window:perform_action(act.ActivatePaneDirection("Right"), pane)
-	-- 		else
-	-- 			window:perform_action(act.ActivateTabRelative(1), pane)
-	-- 		end
-	-- 	end),
-	-- },
 	{
 		key = "H",
 		mods = "ALT|SHIFT",

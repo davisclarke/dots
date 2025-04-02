@@ -16,7 +16,7 @@ configuration {
 	dpi:						1;
 }
 
-@theme "~/.config/rofi/zenwritten-dark.rasi"
+@theme "~/.config/rofi/melange/melange-light.rasi"
 
 /* ---- Global Properties ---- */
 * {
