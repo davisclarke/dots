@@ -1,17 +1,7 @@
-@define-color cc-bg rgb(31,31,40);
-@define-color noti-border-color rgb(126,156, 216);
-@define-color noti-bg rgb(31,31,40);
-@define-color noti-bg-darker rgb(31,31,40);
-@define-color noti-bg-hover rgb(31,31,40);
-@define-color noti-bg-focus rgb(195,64,67);
-@define-color noti-close-bg rgba(255, 255, 255, 0.1);
-@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
-@define-color text-color rgb(220,215,186);
-@define-color text-color-disabled rgb(220,215,186);
-@define-color bg-selected rgb(0, 128, 255);
+@import 'melange-light.css';
 
 * {
-  font-family: MesloLGS Nerd Font;
+  font-family: FiraCode Nerd Font;
   font-size: 12px;
   border-radius: 0px;
 }
@@ -30,7 +20,7 @@
 
 .notification {
   background: @cc-bg;
-  border: 2px solid #7e9cd8;
+  border: 1px solid @main-blue;
   margin: 1px 0px 1px 0px;
 }
 
@@ -53,13 +43,13 @@
 }
 
 .notification-action {
-  border: 2px solid #7e9cd8;
+  border: 1px solid @main-blue;
   border-top: none;
 }
 
 .notification-default-action:hover,
 .notification-action:hover {
-  color: #7e9cd8;
+  color: @main-blue;
   background: @cc-bg;
 }
 
@@ -136,7 +126,7 @@
 
 .control-center {
   background: @cc-bg;
-  border: 2px solid #7e9cd8;
+  border: 1px solid @main-blue;
   
 }
 
@@ -153,11 +143,11 @@
 }
 
 .blank-window {
-  background: alpha(black, 0.1);
+  background: transparent;
 }
 
 .widget-title {
-  color: #7e9cd8;
+  color: @main-blue;
   background: @noti-bg-darker;
   padding: 5px 10px;
   margin: 10px 10px 5px 10px;
@@ -175,7 +165,7 @@
 }
 
 .widget-title > button:hover {
-  background: #7e9cd8;
+  background: @main-blue;
   color: @cc-bg;
 }
 
@@ -184,16 +174,16 @@
   padding: 5px 10px;
   margin: 5px 10px;
   font-size: large;
-  color: #7e9cd8;
+  color: @main-blue;
 }
 
 .widget-dnd > switch {
-  background: #7e9cd8;
+  background: @main-blue;
 }
 
 .widget-dnd > switch:checked {
-  background: #c34043;
-  border: 1px solid #f7768e;
+  background: @noti-bg-focus;
+  border: 1px solid @noti-bg-focus;
 }
 
 .widget-dnd > switch slider,
@@ -251,12 +241,12 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: #c34043;
+  background: @noti-bg-focus;
   color: @cc-bg;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:checked {
-  background: #957fb8;
+  background: @noti-bg-focus;
   color: @cc-bg;
 }
 
@@ -275,7 +265,7 @@
   padding: 5px;
   margin: 5px 10px;
   font-size: 2rem;
-  color: #7e9cd8;
+  color: @main-blue;
 }
 
 .widget-backlight {
@@ -283,5 +273,5 @@
   padding: 5px;
   margin: 5px 10px;
   font-size: 2rem;
-  color: #7e9cd8;
+  color: @main-blue;
 }
