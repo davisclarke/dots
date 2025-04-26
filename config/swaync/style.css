@@ -275,3 +275,18 @@
   font-size: 2rem;
   color: @main-blue;
 }
+
+
+.widget-mpris .widget-mpris-player {
+    background: @noti-bg-darker;
+    padding: 7px;
+}
+
+
+.widget-mpris .widget-mpris-title {
+    font-size: 1.2rem;
+}
+
+.widget-mpris .widget-mpris-subtitle {
+    font-size: 0.8rem;
+}

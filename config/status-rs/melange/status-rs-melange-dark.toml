@@ -3,18 +3,20 @@ icons_format = "{icon}"
 [theme]
 theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
 
+
 [icons]
 icons = "material-nf"
+
+
+[[block]]
+block = "music"
+format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
 
 [[block]]
 block = "time"
 interval = 5
-format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
-
-[[block]]
-block = "notify"
-driver = "swaync"
-format = " $icon {$notification_count |}"
+# format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
+format = " $timestamp.datetime(f:' %R, %a %m/%d') "
 
 [[block]]
 block = "battery"
@@ -23,6 +25,11 @@ format = " $icon $percentage "
 good = 40
 empty_threshold = 0
 info = 40
+
+[[block]]
+block = "notify"
+driver = "swaync"
+format = " $icon {$notification_count |}"
 
 [[block]]
 block = "net"
@@ -42,7 +49,6 @@ critical_mem = 90
 block = "cpu"
 interval = 1
 format = " $icon $barchart $utilization "
-
 # [[block]]
 # block = "packages"
 # package_manager = ["pacman", "aur"]
@@ -60,3 +66,5 @@ block = "sound"
 [[block]]
 block = "backlight"
 device = "intel_backlight"
+
+evice = "intel_backlight"

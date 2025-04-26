@@ -15,7 +15,6 @@
   "control-center-margin-right": 2,
   "control-center-margin-left": 0,
   "widgets": [
-    "mpris",
     "notifications"
   ]
 }
