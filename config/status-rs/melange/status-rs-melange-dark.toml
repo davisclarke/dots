@@ -3,10 +3,8 @@ icons_format = "{icon}"
 [theme]
 theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
 
-
 [icons]
 icons = "material-nf"
-
 
 [[block]]
 block = "music"
@@ -67,4 +65,3 @@ block = "sound"
 block = "backlight"
 device = "intel_backlight"
 
-evice = "intel_backlight"
