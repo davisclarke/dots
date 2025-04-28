@@ -5,10 +5,14 @@ theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
 
 [icons]
 icons = "material-nf"
+[icons.overrides]
+music_play = "\U000f03e4" # nf-md-pause
+music_pause = "\U000f040a" # nf-md-play
 
 [[block]]
 block = "music"
 format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
+
 
 [[block]]
 block = "time"

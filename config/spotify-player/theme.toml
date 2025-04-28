@@ -2,6 +2,8 @@
 name = "default2"
 [themes.palette]
 # default theme doesn't have `foreground` and `background` specified
+# foreground = "foreground"
+# background = "background"
 black = "black"
 red = "red"
 green = "green"
@@ -20,5 +22,5 @@ bright_cyan = "bright_cyan"
 bright_white = "bright_white"
 
 [themes.component_style]
-playback_progress_bar = { bg = "Black", fg = "Black" }
+playback_progress_bar = { bg = "Green", fg = "Green" }
 playback_progress_bar_unfilled = { bg = "Black", fg = "Black" }
