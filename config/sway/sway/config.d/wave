@@ -1,0 +1,25 @@
+output * bg #1f1f28 solid_color
+
+bar {
+  position bottom
+  height 20
+  # mode invisible
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:FiraCode Nerd Font 12
+  status_command i3status-rs $HOME/.config/status-rs/status-rs-wave.toml
+
+  colors {
+      statusline #16161d
+      background #16161d
+      inactive_workspace #16161d #16161d #c8c093
+      focused_workspace #26262d #26262d #c8c093
+      urgent_workspace #16161d #16161d #c34043
+      separator #dcd7ba }
+}
+
+client.focused #7e9cd8 #26262d #7e9cd8 #26262d #7e9cd8
+client.unfocused #16161d #16161d #c8c093 #16161d #16161d
+client.focused_inactive #76946a #16161d #76946a #16161d #76946a
+client.urgent #c34043 #16161d #c34043 #16161d #c34043
