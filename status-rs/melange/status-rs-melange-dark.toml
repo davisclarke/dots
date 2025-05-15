@@ -5,6 +5,7 @@ theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
 
 [icons]
 icons = "material-nf"
+
 [icons.overrides]
 music_play = "\U000f03e4" # nf-md-pause
 music_pause = "\U000f040a" # nf-md-play
@@ -13,13 +14,27 @@ music_pause = "\U000f040a" # nf-md-play
 block = "music"
 format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
 
-
 [[block]]
 block = "time"
 interval = 5
 # format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
 format = " $timestamp.datetime(f:' %R, %a %m/%d') "
+[[block]]
+block = "taskwarrior"
+interval = 60
+format = " $count "
+format_singular = "   1 "
+format_everything_done = "   "
+warning_threshold = 10
+critical_threshold = 20
 
+[[block.filters]]
+name = "today"
+filter = "+PENDING +OVERDUE or +DUETODAY"
+
+# [[block.filters]]
+# name = "none"
+# filter = "project:none +PENDING"
 [[block]]
 block = "battery"
 driver = "upower"
@@ -61,12 +76,12 @@ format = " $icon $barchart $utilization "
 # format_up_to_date = "   "
 # aur_command = "paru -Qua"
 # error_format = "   " 
-
 [[block]]
 block = "temperature"
-format = " μ$icon $average "
+format = " $icon {$average}μ "
 interval = 10
 chip = "*-isa-*"
+
 [[block]]
 block = "sound"
 
