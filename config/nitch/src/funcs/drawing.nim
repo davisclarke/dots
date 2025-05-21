@@ -18,13 +18,13 @@ proc drawInfo*(asciiArt: bool) =
     # (fgRed, nitchLogo)
 
   const  # icons before cotegores
-    userIcon   = " "  # recomended: " " or "|>"
+    userIcon   = " "  # recomended: " " or "|>"
     hnameIcon  = " "  # recomended: " " or "|>"
     distroIcon = "󰻀 "  # recomended: "󰻀 " or "|>"
-    kernelIcon = "󰌢 "  # recomended: "󰌢 " or "|>"
+    kernelIcon = " "  # recomended: "󰌢 " or "|>"
     uptimeIcon = " "  # recomended: " " or "|>"
     shellIcon  = " "  # recomended: " " or "|>"
-    pkgsIcon   = "󰏖 "  # recomended: "󰏖 " or "|>"
+    pkgsIcon   = " "  # recomended: "󰏖 " or "|>"
     ramIcon    = "󰍛 "  # recomended: "󰍛 " or "|>"
     colorsIcon = "󰏘 "  # recomended: "󰏘 " or "->"
     # please insert any char after the icon
@@ -72,11 +72,11 @@ proc drawInfo*(asciiArt: bool) =
     stdout.styledWrite(styleBright, coloredLogo[0], coloredLogo[1], color0)
 
   # colored out
-    stdout.styledWrite("\n", styleBright, "  ╭───────────╮\n")
+    stdout.styledWrite("\n", styleBright, "  ┌───────────┐\n")
     stdout.styledWrite("  │ ", color1, userIcon, color0, userCat, color1, userInfo, color0, "\n",)
     stdout.styledWrite("  │ ", color2, distroIcon, color0, distroCat, color2, distroInfo, color0, "\n")
     stdout.styledWrite("  │ ", color3, kernelIcon, color0, kernelCat, color3, kernelInfo, color0, "\n")
     stdout.styledWrite("  │ ", color4, pkgsIcon, color0, pkgsCat, color4, pkgsInfo, color0, "\n")
     stdout.styledWrite("  ├───────────┤\n")
     stdout.styledWrite("  │ ", color7, colorsIcon, color0, colorsCat, color1, dotIcon, " ", color2, dotIcon, " ", color3, dotIcon, " ", color4, dotIcon, " ", color5, dotIcon, " ", color6, dotIcon, " ", color8, "\n")
-    stdout.styledWrite("  ╰───────────╯\n\n")
+    stdout.styledWrite("  └───────────┘\n\n")
