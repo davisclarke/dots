@@ -6,10 +6,10 @@ config.hide_mouse_cursor_when_typing = true
 
 -- Fonts and window
 config.font = wezterm.font("FiraCode Nerd Font")
-config.font_size = 12
+config.font_size = 11
 
 config.freetype_load_target = "HorizontalLcd"
-config.freetype_render_target = "Light"
+config.freetype_render_target = "Normal"
 
 -- Padding
 config.window_padding = {
@@ -20,9 +20,8 @@ config.window_padding = {
 }
 
 -- Wayland
+config.front_end = "OpenGL"
 config.enable_wayland = true
-
-config.animation_fps = 1
 
 -- Mux server
 config.unix_domains = {
@@ -32,7 +31,7 @@ config.unix_domains = {
 }
 
 -- Colors
-local use_dark_theme = false
+local use_dark_theme = true
 -- NOTE: Above line is controlled by ~/.config/sway/dark_theme.sh and ~/.config/sway/light_theme.sh
 
 local function tab_title(tab_info)
@@ -43,6 +42,7 @@ local function tab_title(tab_info)
 	end
 	-- Otherwise, use the title from the active pane
 	-- in that tab
+	-- return tab_info.tab_index
 	return tab_info.tab_index
 end
 
@@ -67,14 +67,14 @@ local function tab_theme(active_tab_background, inactive_tab_background, active_
 
 	config.window_frame = {
 		font = wezterm.font({ family = "FiraCode Nerd Font", weight = "Regular" }),
-		font_size = 12.0,
+		font_size = 11.0,
 		active_titlebar_bg = inactive_tab_background,
 		inactive_titlebar_bg = inactive_tab_background,
 	}
 end
 
 config.use_fancy_tab_bar = false
--- config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = true
 if use_dark_theme then
 	config.colors = {
 		foreground = "#ECE1D7",
@@ -85,6 +85,7 @@ if use_dark_theme then
 		selection_bg = "#403A36",
 		selection_fg = "#ECE1D7",
 		split = "#403A36",
+
 		ansi = {
 			"#34302C",
 			"#BD8183",
@@ -160,9 +161,14 @@ config.scrollback_lines = 4000
 
 -- Inactive Window Behavior
 
+-- config.inactive_pane_hsb = {
+-- 	saturation = 0.93,
+-- 	brightness = 0.85,
+-- }
+
 config.inactive_pane_hsb = {
-	saturation = 0.93,
-	brightness = 0.85,
+	saturation = 1.0,
+	brightness = 1.0,
 }
 
 -- Keymaps
@@ -251,7 +257,7 @@ config.keys = {
 	{
 		key = "d",
 		mods = "LEADER",
-		action = act.CloseCurrentTab({ confirm = true }),
+		action = act.CloseCurrentTab({ confirm = false }),
 	},
 	{
 		key = "d",
@@ -270,16 +276,16 @@ config.keys = {
 			end),
 		}),
 	},
-	{
-		key = "a",
-		mods = "LEADER",
-		action = act.AttachDomain("unix"),
-	},
-	{
-		key = "d",
-		mods = "LEADER",
-		action = act.DetachDomain({ DomainName = "unix" }),
-	},
+	-- {
+	-- 	key = "a",
+	-- 	mods = "LEADER",
+	-- 	action = act.AttachDomain("unix"),
+	-- },
+	-- {
+	-- 	key = "d",
+	-- 	mods = "LEADER",
+	-- 	action = act.DetachDomain({ DomainName = "unix" }),
+	-- },
 	{
 		key = "<",
 		mods = "LEADER|SHIFT",
@@ -298,7 +304,7 @@ config.keys = {
 		action = act.ShowLauncherArgs({ flags = "WORKSPACES" }),
 	},
 	{
-		key = "t",
+		key = "e",
 		mods = "ALT",
 		action = act.PaneSelect({
 			mode = "SwapWithActive",

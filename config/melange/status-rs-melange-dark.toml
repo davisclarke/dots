@@ -1,7 +1,7 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "/home/davisc/.config/status-rs/melange/melange-light-colors.toml"
+theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
 
 [icons]
 icons = "material-nf"
@@ -22,7 +22,7 @@ format = " $timestamp.datetime(f:' %R, %a %m/%d') "
 [[block]]
 block = "taskwarrior"
 interval = 60
-format = " $count "
+format = "  $count.eng(w:1) "
 format_singular = "  1 "
 format_everything_done = "   "
 warning_threshold = 10
@@ -30,11 +30,20 @@ critical_threshold = 20
 
 [[block.filters]]
 name = "today"
-filter = "+PENDING +OVERDUE or +DUETODAY"
+filter = "+PENDING -OVERDUE or +DUETODAY "
+[[block]]
+block = "taskwarrior"
+interval = 60
+format = " 󰀦 $count "
+format_singular = " 󰀦 1 "
+format_everything_done = ""
+warning_threshold = 1
+critical_threshold = 1
 
-# [[block.filters]]
-# name = "none"
-# filter = "project:none +PENDING"
+[[block.filters]]
+name = "late"
+filter = " +OVERDUE -DUETODAY "
+
 [[block]]
 block = "battery"
 driver = "upower"

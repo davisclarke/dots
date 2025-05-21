@@ -1,0 +1,292 @@
+@import 'melange-dark.css';
+
+* {
+  font-family: FiraCode Nerd Font;
+  font-size: 11px;
+  border-radius: 0px;
+}
+
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: @noti-bg-darker;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.notification {
+  background: @cc-bg;
+  border: 1px solid @main-blue;
+  margin: 1px 0px 1px 0px;
+}
+
+.notification-content {
+  background: @cc-bg;
+}
+
+.notification-default-action {
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+/* no mouse, ty */
+.close-button,
+.close-button:hover {
+  background: transparent;
+  color: transparent;
+}
+
+.notification-action {
+  border: 1px solid @main-blue;
+  border-top: none;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  color: @main-blue;
+  background: @cc-bg;
+}
+
+.notification-default-action {
+  margin: 0px;
+}
+
+.notification-action:first-child {
+  background: @cc-bg;
+}
+
+.notification-action:last-child {
+  background: @cc-bg;
+}
+
+.inline-reply {
+  margin-top: 8px;
+}
+
+.inline-reply-entry {
+  background: @noti-bg-darker;
+  color: @text-color;
+  caret-color: @text-color;
+  border: 1px solid @noti-border-color;
+  
+}
+
+.inline-reply-button {
+  margin-left: 4px;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  
+  color: @text-color;
+}
+
+.inline-reply-button:disabled {
+  background: initial;
+  color: @text-color-disabled;
+  border: 1px solid transparent;
+}
+
+.inline-reply-button:hover {
+  background: @noti-bg-hover;
+}
+
+.image {
+  margin-right: 10px;
+}
+
+.summary {
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  color: @text-color;  
+  text-shadow: none;
+}
+
+.time {
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  color: @text-color;
+  text-shadow: none;
+  margin-right: 18px;
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 400;
+  background: transparent;
+  color: @text-color;
+  text-shadow: none;
+}
+
+.control-center {
+  background: @cc-bg;
+  border: 1px solid @main-blue;
+  
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+.blank-window {
+  background: transparent;
+}
+
+.widget-title {
+  color: @main-blue;
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  font-size: 1.5rem;
+  
+}
+
+.widget-title > button {
+  font-size: 1rem;
+  color: @text-color;
+  text-shadow: none;
+  background: @noti-bg;
+  box-shadow: none;
+  
+}
+
+.widget-title > button:hover {
+  background: @main-blue;
+  color: @cc-bg;
+}
+
+.widget-dnd {
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  font-size: large;
+  color: @main-blue;
+}
+
+.widget-dnd > switch {
+  background: @main-blue;
+}
+
+.widget-dnd > switch:checked {
+  background: @noti-bg-focus;
+  border: 1px solid @noti-bg-focus;
+}
+
+.widget-dnd > switch slider,
+.widget-dnd > switch:checked slider {
+  background: @cc-bg;
+}
+
+.widget-label {
+  margin: 10px 10px 5px 10px;
+}
+
+.widget-label > label {
+  font-size: 1rem;
+  color: @text-color;
+}
+
+.widget-mpris {
+  color: @text-color;
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 5px 10px 5px 10px;
+  
+}
+
+.widget-mpris > box > button {
+  
+}
+
+.widget-mpris-player {
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
+}
+
+.widget-buttons-grid {
+  font-size: x-large;
+  padding: 5px;
+  margin: 10px 10px 5px 10px;
+  
+  background: @noti-bg-darker;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 3px;
+  background: @cc-bg;
+  color: @text-color;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @noti-bg-focus;
+  color: @cc-bg;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: @noti-bg-focus;
+  color: @cc-bg;
+}
+
+.widget-menubar > box > .menu-button-bar > button {
+  border: none;
+  background: transparent;
+}
+
+.topbar-buttons > button {
+  border: none;
+  background: transparent;
+}
+
+.widget-volume {
+  background: @noti-bg-darker;
+  padding: 5px;
+  margin: 5px 10px;
+  font-size: 2rem;
+  color: @main-blue;
+}
+
+.widget-backlight {
+  background: @noti-bg-darker;
+  padding: 5px;
+  margin: 5px 10px;
+  font-size: 2rem;
+  color: @main-blue;
+}
+
+
+.widget-mpris .widget-mpris-player {
+    background: @noti-bg-darker;
+    padding: 7px;
+}
+
+
+.widget-mpris .widget-mpris-title {
+    font-size: 1.2rem;
+}
+
+.widget-mpris .widget-mpris-subtitle {
+    font-size: 0.8rem;
+}

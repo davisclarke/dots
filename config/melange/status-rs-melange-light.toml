@@ -1,7 +1,7 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
+theme = "/home/davisc/.config/status-rs/melange/melange-light-colors.toml"
 
 [icons]
 icons = "material-nf"
@@ -23,7 +23,7 @@ format = " $timestamp.datetime(f:' %R, %a %m/%d') "
 block = "taskwarrior"
 interval = 60
 format = " $count "
-format_singular = "  1 "
+# format_singular = "  1 "
 format_everything_done = "   "
 warning_threshold = 10
 critical_threshold = 20

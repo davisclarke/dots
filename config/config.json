@@ -1,0 +1,20 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "center",
+  "control-center-positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "user",
+  "transition-time": 0,
+"timeout": 5,
+  "timeout-low": 3,
+  "control-center-margin-top": 4,
+  "control-center-margin-bottom": 4,
+  "control-center-margin-right": 2,
+  "control-center-margin-left": 0,
+  "widgets": [
+    "notifications"
+  ]
+}
