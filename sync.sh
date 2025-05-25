@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Dots
-rsync -r ~/.config/status-rs/ ./config/
-rsync -r ~/.config/sway/ ./config/
-rsync -r ~/.config/swaync/ ./config/
-rsync -r ~/.config/rofi/ ./config/
+rsync -r ~/.config/status-rs/ ./config/status-rs
+rsync -r ~/.config/sway/ ./config/sway
+rsync -r ~/.config/swaync/ ./config/swaync
+rsync -r ~/.config/rofi/ ./config/rofi
 
 # Homedir dots
 rsync -r ~/.wezterm.lua ./homedir/ 

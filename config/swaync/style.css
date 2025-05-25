@@ -1,8 +1,8 @@
-@import 'melange-light.css';
+@import 'melange-dark.css';
 
 * {
   font-family: FiraCode Nerd Font;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 0px;
 }
 

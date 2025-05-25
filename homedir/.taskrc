@@ -9,10 +9,10 @@ news.version=3.4.1
 #hooks.location=~/.config/task/hooks
 # Color theme (uncomment one to use)
 # include light-16.theme
-# include light-256.theme
+# include dark-256.theme
 #include bubblegum-256.theme
 #include dark-16.theme
-# include light-256.theme
+# include dark-256.theme
 #include dark-red-256.theme
 #include dark-green-256.theme
 #include dark-blue-256.theme

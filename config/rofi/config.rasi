@@ -1,7 +1,7 @@
 /* ---- Configuration ---- */
 
 configuration {
-	font:						"FiraCode Nerd Font 12";
+	font:						"FiraCode Nerd Font 11";
 	modi:                       "drun";
     show-icons:                 false;
     display-drun:               "Apps";
@@ -16,7 +16,7 @@ configuration {
 	dpi:						1;
 }
 
-@theme "~/.config/rofi/melange/melange-light.rasi"
+@theme "~/.config/rofi/melange/melange-dark.rasi"
 
 /* ---- Global Properties ---- */
 * {
@@ -126,7 +126,7 @@ mode-switcher{
 }
 button {
     width:                       5%;
-    padding:                     12px;
+    padding:                     11px;
     // border radius:               5px;
     background-color:            @text-selected;
     text-color:                  @text-color;
@@ -204,7 +204,7 @@ element-icon {
     cursor:                      inherit;
 }
 element-text {
-    font:						"FiraCode Nerd Font 12";
+    font:						"FiraCode Nerd Font 11";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
@@ -218,7 +218,7 @@ message {
     border:                      0px;
 }
 textbox {
-    padding:                     12px;
+    padding:                     11px;
     // border radius:               5px;
     background-color:            @background-alt;
     text-color:                  @background;
@@ -226,7 +226,7 @@ textbox {
     horizontal-align:            0.0;
 }
 error-message {
-    padding:                     12px;
+    padding:                     11px;
     // border radius:               5px;
     background-color:            @background-alt;
     text-color:                  @background;
