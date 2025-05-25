@@ -31,7 +31,7 @@ config.unix_domains = {
 }
 
 -- Colors
-local use_dark_theme = true
+local use_dark_theme = false
 -- NOTE: Above line is controlled by ~/.config/sway/dark_theme.sh and ~/.config/sway/light_theme.sh
 
 local function tab_title(tab_info)
@@ -42,25 +42,26 @@ local function tab_title(tab_info)
 	end
 	-- Otherwise, use the title from the active pane
 	-- in that tab
+	return tab_info.active_pane.title, tab_info.tab_index
 	-- return tab_info.tab_index
-	return tab_info.tab_index
 end
 
 local function tab_theme(active_tab_background, inactive_tab_background, active_tab_foreground, inactive_tab_foreground)
-	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
-		local title = tab_title(tab)
+	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, max_width)
+		local title, index = tab_title(tab)
+		title = wezterm.truncate_right(title, max_width - 2)
 		if tab.is_active then
 			return {
 				{ Background = { Color = active_tab_background } },
-				{ Foreground = { Color = active_tab_foreground } },
-				{ Text = "*" .. title .. " " },
+				{ Foreground = { Color = inactive_tab_foreground } },
+				{ Text = "[*" .. index .. "] " .. title .. " " },
 				{ Foreground = { Color = inactive_tab_background } },
 			}
 		else
 			return {
 				{ Background = { Color = inactive_tab_background } },
 				{ Foreground = { Color = inactive_tab_foreground } },
-				{ Text = "" .. title .. " " },
+				{ Text = "[-" .. index .. "] " .. title .. " " },
 			}
 		end
 	end)

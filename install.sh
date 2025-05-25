@@ -44,3 +44,9 @@ mkdir $HOME/repos
 # conda config --set changeps1 false 
 # conda config --set auto_activate_base false 
 # confa init fish
+#
+sudo -s 
+# Overwrite floorp policies
+mv ./misc/policies.json /usr/lib/floorp/policies.json
+
+exit 
