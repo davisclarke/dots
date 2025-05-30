@@ -11,3 +11,6 @@ rsync -r ~/.wezterm.lua ./homedir/
 rsync -r ~/.tmux.conf ./homedir/ 
 rsync -r ~/.taskrc ./homedir/ 
 rsync -r ~/.gtkrc-2.0 ./homedir/ 
+
+# Packages
+paru -Qqe > paclist.txt

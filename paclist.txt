@@ -61,6 +61,7 @@ khal
 kitty
 lazygit
 libpulse
+libreoffice-still
 libva-intel-driver
 linux
 linux-firmware
