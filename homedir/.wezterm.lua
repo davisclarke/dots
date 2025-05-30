@@ -42,26 +42,32 @@ local function tab_title(tab_info)
 	end
 	-- Otherwise, use the title from the active pane
 	-- in that tab
-	return tab_info.active_pane.title, tab_info.tab_index
-	-- return tab_info.tab_index
+	-- return tab_info.active_pane.title, tab_info.tab_index
+	return tab_info.tab_index
 end
 
-local function tab_theme(active_tab_background, inactive_tab_background, active_tab_foreground, inactive_tab_foreground)
-	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, max_width)
-		local title, index = tab_title(tab)
-		title = wezterm.truncate_right(title, max_width - 2)
+local function tab_theme(
+	active_tab_background,
+	inactive_tab_background,
+	_active_tab_foreground,
+	inactive_tab_foreground
+)
+	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
+		-- local _title, index = tab_title(tab)
+		local index = tab_title(tab)
+		-- title = wezterm.truncate_right(title, max_width - 2)
 		if tab.is_active then
 			return {
-				{ Background = { Color = active_tab_background } },
+				{ Background = { Color = inactive_tab_background } },
 				{ Foreground = { Color = inactive_tab_foreground } },
-				{ Text = "[*" .. index .. "] " .. title .. " " },
+				{ Text = " " .. index .. "*" },
 				{ Foreground = { Color = inactive_tab_background } },
 			}
 		else
 			return {
 				{ Background = { Color = inactive_tab_background } },
 				{ Foreground = { Color = inactive_tab_foreground } },
-				{ Text = "[-" .. index .. "] " .. title .. " " },
+				{ Text = " " .. index .. " " },
 			}
 		end
 	end)
