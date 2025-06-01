@@ -51,6 +51,7 @@ gruvbox-material-gtk-theme-git
 gtk-engines
 himalaya
 htop
+hyprland
 i3status-rust
 intel-media-driver
 intel-ucode
@@ -84,6 +85,7 @@ npm
 nwg-look
 obsidian
 openvpn
+otf-geist-mono-nerd
 pacman-contrib
 papirus-icon-theme
 paru
@@ -153,9 +155,12 @@ tokei
 tree
 ttf-firacode-nerd
 ttf-font-icons
+ttf-ibmplex-mono-nerd
+ttf-iosevka-nerd
 ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols
 ttf-roboto-mono-nerd
+ttf-terminus-nerd
 ueberzugpp
 unzip
 vim

@@ -55,12 +55,12 @@ info = 40
 [[block]]
 block = "notify"
 driver = "swaync"
-format = " $icon {$notification_count |}"
+format = " $icon{$notification_count|} "
 
 [[block]]
 block = "net"
 # format = " $icon {$signal_strength / $ssid $frequency|VPN|Ethernet} "
-format = " $icon "
+format = " {󰤉 $signal_strength|󰈀} "
 error_format = "   "
 
 [[block]]
@@ -87,14 +87,13 @@ format = " $icon $barchart $utilization "
 # error_format = "   " 
 [[block]]
 block = "temperature"
-format = " $icon {$average}μ,  $max"
+format = " $icon {$average}μ,  $max "
 interval = 10
 chip = "*-isa-*"
 
 [[block]]
 block = "sound"
-
+format = " $icon {$volume|} "
 [[block]]
 block = "backlight"
 device = "intel_backlight"
-

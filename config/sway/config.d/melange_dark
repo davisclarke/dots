@@ -7,7 +7,7 @@ bar {
   mode dock
   status_padding 0
   tray_output none
-  font pango:FiraCode Nerd Font 11
+  font pango:RobotoMono Nerd Font 11
   status_command i3status-rs $HOME/.config/status-rs/melange/status-rs-melange-dark.toml
 
   colors {

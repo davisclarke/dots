@@ -25,7 +25,8 @@ exec swaync
 exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
 
 # Font
-font pango:FiraCode Nerd Font 9
+# font pango:FiraCode Nerd Font 9
+font pango:RobotoMono Nerd Font 10
 
 # Swap esc and CapsLock via caps2escape, make repeat delay slightly faster 
 input "type:keyboard" {
@@ -99,7 +100,8 @@ bindsym $mod+o mode "LOGOUT"
 
 
 # Launchers 
-bindsym $mod+q exec wezterm start -- fish -i -C nitch 
+# bindsym $mod+q exec wezterm start -- fish -i -C nitch 
+bindsym $mod+q exec wezterm
 bindsym $mod+w exec floorp
 bindsym $mod+z exec zotero
 bindsym $mod+d exec rofi -show drun
@@ -244,5 +246,6 @@ smart_borders on
 
 # Start wezterm on login
 workspace 1 
-exec wezterm start -- fish -i -C nitch 
+# exec wezterm start -- fish -i -C nitch 
+exec wezterm  
 

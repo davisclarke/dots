@@ -5,7 +5,7 @@ local config = {}
 config.hide_mouse_cursor_when_typing = true
 
 -- Fonts and window
-config.font = wezterm.font("FiraCode Nerd Font")
+config.font = wezterm.font("RobotoMono Nerd Font")
 config.font_size = 11
 
 config.freetype_load_target = "HorizontalLcd"
@@ -157,7 +157,17 @@ else
 
 	tab_theme("#C1C1C1", "#C1C1C1", "#54433A", "#54433A")
 end
-
+-- config.colors = {
+-- 	foreground = "#dadada",
+-- 	background = "#1a1a1a",
+-- 	cursor_bg = "#bfad9e",
+-- 	cursor_border = "#bfad9e",
+-- 	cursor_fg = "#1a1a1a",
+-- 	selection_bg = "#2d2d2d",
+-- 	selection_fg = "#c0af8c",
+-- 	ansi = { "#1a1a1a", "#d29393", "#b3b393", "#cbaa89", "#a8a1be", "#b39fb0", "#c0af8c", "#dadada" },
+-- 	brights = { "#5b5b5b", "#c95954", "#828040", "#a6794c", "#5a6599", "#9c6995", "#74a39e", "#ffffff" },
+-- }
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 32
 config.show_new_tab_button_in_tab_bar = false
