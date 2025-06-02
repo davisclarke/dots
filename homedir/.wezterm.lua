@@ -9,7 +9,7 @@ config.font = wezterm.font("RobotoMono Nerd Font")
 config.font_size = 11
 
 config.freetype_load_target = "HorizontalLcd"
-config.freetype_render_target = "Normal"
+-- config.freetype_render_target = "Normal"
 
 -- Padding
 config.window_padding = {
