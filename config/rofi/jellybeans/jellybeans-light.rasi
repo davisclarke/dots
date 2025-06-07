@@ -1,5 +1,5 @@
 * {
-  base: #fafafa;
+  base: #f9f9f9;
   text: #252525;
   red: #954d3b;
 }

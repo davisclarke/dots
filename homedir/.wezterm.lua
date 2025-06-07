@@ -31,7 +31,7 @@ config.unix_domains = {
 }
 
 -- Colors
-local use_dark_theme = false
+local use_dark_theme = true
 -- NOTE: Above line is controlled by ~/.config/sway/dark_theme.sh and ~/.config/sway/light_theme.sh
 
 local function tab_title(tab_info)
@@ -124,7 +124,7 @@ if use_dark_theme then
 else
 	config.colors = {
 		foreground = "#252525",
-		background = "#fafafa",
+		background = "#f9f9f9",
 		cursor_fg = "#f5e6d3",
 		cursor_bg = "#252525",
 		cursor_border = "#252525",

@@ -1,4 +1,4 @@
-output * bg #fafafa solid_color
+output * bg #f9f9f9 solid_color
 
 bar {
   position top

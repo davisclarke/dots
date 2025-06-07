@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
 
 # Colors handled by dark_theme.sh and light_theme.sh respectively
-include /home/davisc/.config/sway/config.d/jellybeans_light 
+include /home/davisc/.config/sway/config.d/jellybeans_dark 
 
 # Variables 
 set $mod Mod4
