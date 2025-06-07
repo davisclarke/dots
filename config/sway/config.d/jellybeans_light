@@ -16,7 +16,7 @@ bar {
       inactive_workspace #c1c1c1 #c1c1c1 #252525
       focused_workspace #252525 #252525 #c1c1c1
       urgent_workspace #a02020 #a02020 #c1c1c1
-      separator #888F94 }
+      separator #787878 }
 }
 
 client.focused #2952a3 #c1c1c1 #2952a3 #c1c1c1 #2952a3
