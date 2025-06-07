@@ -1,0 +1,25 @@
+output * bg #1a1a1a solid_color
+
+bar {
+  position top 
+  height 18
+  # mode invisible
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:RobotoMono Nerd Font 11
+  status_command i3status-rs $HOME/.config/status-rs/melange/status-rs-melange-dark.toml
+
+  colors {
+      statusline #2d2d2d
+      background #2d2d2d
+      inactive_workspace #2d2d2d #2d2d2d #dadada
+      focused_workspace #2d2d2d #dadada #2d2d2d
+      urgent_workspace #c95954 #c95954 #2d2d2d
+      separator #888F94 }
+}
+
+client.focused #5a6599 #2d2d2d #a8a1be #2d2d2d #5a6599
+client.unfocused #34302C #2d2d2d #dadada #2d2d2d #2d2d2d
+client.focused_inactive #a6794c #2d2d2d #cbaa89 #2d2d2d #a6794c
+client.urgent #c95954 #2d2d2d #d29393 #2d2d2d #c95954

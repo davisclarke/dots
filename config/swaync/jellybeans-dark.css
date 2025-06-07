@@ -1,0 +1,13 @@
+@define-color cc-bg #151515;
+@define-color noti-border-color #e8e8d3;
+@define-color noti-bg #151515;
+@define-color noti-bg-darker #151515;
+@define-color noti-bg-hover #151515;
+@define-color noti-bg-focus #cf6a4c;
+@define-color noti-close-bg #e8e8d3;
+@define-color noti-close-bg-hover #e8e8d3;
+@define-color text-color #e8e8d3;
+@define-color text-color-disabled #e8e8d3;
+@define-color bg-selected #8fbfdc;
+@define-color main #cf6a4c; /* Red now sucka */
+

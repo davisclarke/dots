@@ -113,6 +113,7 @@ snapper
 sof-firmware
 spicetify-cli
 spotify-launcher
+spotifyd
 starship
 sway
 sway-audio-idle-inhibit-git

@@ -5,11 +5,11 @@ local config = {}
 config.hide_mouse_cursor_when_typing = true
 
 -- Fonts and window
-config.font = wezterm.font("RobotoMono Nerd Font")
+config.font = wezterm.font_with_fallback({ "RobotoMono Nerd Font", "FiraCode Nerd Font" })
 config.font_size = 11
 
-config.freetype_load_target = "HorizontalLcd"
--- config.freetype_render_target = "Normal"
+config.freetype_load_target = "Normal"
+config.freetype_render_target = "Normal"
 
 -- Padding
 config.window_padding = {
@@ -31,7 +31,7 @@ config.unix_domains = {
 }
 
 -- Colors
-local use_dark_theme = true
+local use_dark_theme = false
 -- NOTE: Above line is controlled by ~/.config/sway/dark_theme.sh and ~/.config/sway/light_theme.sh
 
 local function tab_title(tab_info)
@@ -84,90 +84,158 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 if use_dark_theme then
 	config.colors = {
-		foreground = "#ECE1D7",
-		background = "#292522",
-		cursor_bg = "#ECE1D7",
-		cursor_border = "#ECE1D7",
-		cursor_fg = "#292522",
-		selection_bg = "#403A36",
-		selection_fg = "#ECE1D7",
-		split = "#403A36",
+		foreground = "#e8e8d3",
+		background = "#151515",
+		cursor_fg = "#151515",
+		cursor_bg = "#e8e8d3",
+		cursor_border = "#e8e8d3",
+		selection_fg = "#151515",
+		selection_bg = "#888888",
+		compose_cursor = "#e8e8d3",
+		visual_bell = "#40000a",
+		split = "#252525",
 
 		ansi = {
-			"#34302C",
-			"#BD8183",
-			"#78997A",
-			"#E49B5D",
-			"#7F91B2",
-			"#B380B0",
-			"#7B9695",
-			"#C1A78E",
+			"#101010",
+			"#cf6a4c",
+			"#99ad6a",
+			"#ffb964",
+			"#8fbfdc",
+			"#c6b6ee",
+			"#668799",
+			"#ffffff",
 		},
 		brights = {
-			"#867462",
-			"#D47766",
-			"#85B695",
-			"#EBC06D",
-			"#A3A9CE",
-			"#CF9BC2",
-			"#89B3B6",
-			"#ECE1D7",
+			"#404040",
+			"#B05050",
+			"#99ad6a",
+			"#dad085",
+			"#8197bf",
+			"#c6b6ee",
+			"#2B5B77",
+			"#c7c7c7",
 		},
 		tab_bar = {
-			inactive_tab_edge = "#403A36",
-			background = "#403A36",
+			inactive_tab_edge = "#252525",
+			background = "#252525",
 		},
 	}
-	tab_theme("#403A36", "#403A36", "#ECE1D7", "#ECE1D7")
+	tab_theme("#252525", "#252525", "#e8e8d3", "#e8e8d3")
 else
 	config.colors = {
-		foreground = "#54433A",
-		background = "#F1F1F1",
-		cursor_bg = "#54433A",
-		cursor_border = "#54433A",
-		cursor_fg = "#F1F1F1",
-		selection_bg = "#D9D3CE",
-		selection_fg = "#54433A",
+		foreground = "#252525",
+		background = "#fafafa",
+		cursor_fg = "#f5e6d3",
+		cursor_bg = "#252525",
+		cursor_border = "#252525",
+		selection_fg = "#f5e6d3",
+		selection_bg = "#686868",
+		compose_cursor = "#252525",
+		visual_bell = "#ffe5ea",
 		split = "#C1C1C1",
 		ansi = {
-			"#E9E1DB",
-			"#C77B8B",
-			"#6E9B72",
-			"#BC5C00",
-			"#7892BD",
-			"#BE79BB",
-			"#739797",
-			"#7D6658",
+			"#f5f5f5",
+			"#954d3b",
+			"#386014",
+			"#876820",
+			"#234291",
+			"#6a4abd",
+			"#2B5B77",
+			"#444444",
 		},
 		brights = {
-			"#A98A78",
-			"#BF0021",
-			"#3A684A",
-			"#A06D00",
-			"#465AA4",
-			"#904180",
-			"#3D6568",
-			"#54433A",
+			"#404040",
+			"#a02020",
+			"#457039",
+			"#a66a10",
+			"#2952a3",
+			"#540063",
+			"#3a596a",
+			"#787878",
 		},
 		tab_bar = {
-			inactive_tab_edge = "#D9D3CE",
+			inactive_tab_edge = "#C1C1C1",
 			background = "#C1C1C1",
 		},
 	}
 
-	tab_theme("#C1C1C1", "#C1C1C1", "#54433A", "#54433A")
+	tab_theme("#C1C1C1", "#C1C1C1", "#252525", "#252525")
 end
--- config.colors = {
--- 	foreground = "#dadada",
--- 	background = "#1a1a1a",
--- 	cursor_bg = "#bfad9e",
--- 	cursor_border = "#bfad9e",
--- 	cursor_fg = "#1a1a1a",
--- 	selection_bg = "#2d2d2d",
--- 	selection_fg = "#c0af8c",
--- 	ansi = { "#1a1a1a", "#d29393", "#b3b393", "#cbaa89", "#a8a1be", "#b39fb0", "#c0af8c", "#dadada" },
--- 	brights = { "#5b5b5b", "#c95954", "#828040", "#a6794c", "#5a6599", "#9c6995", "#74a39e", "#ffffff" },
--- }
+-- if use_dark_theme then
+-- 	config.colors = {
+-- 		foreground = "#ECE1D7",
+-- 		background = "#292522",
+-- 		cursor_bg = "#ECE1D7",
+-- 		cursor_border = "#ECE1D7",
+-- 		cursor_fg = "#292522",
+-- 		selection_bg = "#403A36",
+-- 		selection_fg = "#ECE1D7",
+-- 		split = "#403A36",
+--
+-- 		ansi = {
+-- 			"#34302C",
+-- 			"#BD8183",
+-- 			"#78997A",
+-- 			"#E49B5D",
+-- 			"#7F91B2",
+-- 			"#B380B0",
+-- 			"#7B9695",
+-- 			"#C1A78E",
+-- 		},
+-- 		brights = {
+-- 			"#867462",
+-- 			"#D47766",
+-- 			"#85B695",
+-- 			"#EBC06D",
+-- 			"#A3A9CE",
+-- 			"#CF9BC2",
+-- 			"#89B3B6",
+-- 			"#ECE1D7",
+-- 		},
+-- 		tab_bar = {
+-- 			inactive_tab_edge = "#403A36",
+-- 			background = "#403A36",
+-- 		},
+-- 	}
+-- 	tab_theme("#403A36", "#403A36", "#ECE1D7", "#ECE1D7")
+-- else
+-- 	config.colors = {
+-- 		foreground = "#54433A",
+-- 		background = "#F1F1F1",
+-- 		cursor_bg = "#54433A",
+-- 		cursor_border = "#54433A",
+-- 		cursor_fg = "#F1F1F1",
+-- 		selection_bg = "#D9D3CE",
+-- 		selection_fg = "#54433A",
+-- 		split = "#C1C1C1",
+-- 		ansi = {
+-- 			"#E9E1DB",
+-- 			"#C77B8B",
+-- 			"#6E9B72",
+-- 			"#BC5C00",
+-- 			"#7892BD",
+-- 			"#BE79BB",
+-- 			"#739797",
+-- 			"#7D6658",
+-- 		},
+-- 		brights = {
+-- 			"#A98A78",
+-- 			"#BF0021",
+-- 			"#3A684A",
+-- 			"#A06D00",
+-- 			"#465AA4",
+-- 			"#904180",
+-- 			"#3D6568",
+-- 			"#54433A",
+-- 		},
+-- 		tab_bar = {
+-- 			inactive_tab_edge = "#D9D3CE",
+-- 			background = "#C1C1C1",
+-- 		},
+-- 	}
+--
+-- 	tab_theme("#C1C1C1", "#C1C1C1", "#54433A", "#54433A")
+-- end
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 32
 config.show_new_tab_button_in_tab_bar = false

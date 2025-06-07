@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
 
 # Colors handled by dark_theme.sh and light_theme.sh respectively
-include /home/davisc/.config/sway/config.d/melange_dark 
+include /home/davisc/.config/sway/config.d/jellybeans_light 
 
 # Variables 
 set $mod Mod4
@@ -22,30 +22,32 @@ exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DES
 exec swaync
 
 # Gamma and nightshift
-exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
+# exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
+exec wlsunset -t 3900 -T 3901 -l 0 -L 0 -g 1.25
 
 # Font
 # font pango:FiraCode Nerd Font 9
 font pango:RobotoMono Nerd Font 10
 
-# Swap esc and CapsLock via caps2escape, make repeat delay slightly faster 
+# Esc and CapsLock swapped via caps2escape, make repeat delay slightly faster 
 input "type:keyboard" {
   repeat_delay 200
 
 }
 
 # Cursor Theme
-seat seat0 xcursor_theme Bibata-Modern-Ice 24
+seat seat0 xcursor_theme Bibata-Modern-Ice 20
 
 # Hide cursor after some time 
-seat seat0 hide_cursor 3000
+seat seat0 hide_cursor 1000
 
 # Change trackpoint profile 
 input "2:10:TPPS/2_Elan_TrackPoint" accel_profile flat
 input "2:10:TPPS/2_Elan_TrackPoint" pointer_accel 0.40
 
-# Disable touchpad (for now)
-input type:touchpad events disabled
+# Why so buggy!?!
+# # Disable touchpad (for now)
+# input type:touchpad events disabled
 # clipboard manager
 exec wl-paste --type text --watch cliphist store 
 exec wl-paste --type image --watch cliphist store
@@ -235,17 +237,18 @@ bindsym $mod+Shift+m exec sh /home/davisc/.config/sway/light_theme.sh
 ### Window behavior ###
 # Gaps
 gaps inner 8
-gaps outer 1
+# gaps outer 1
 gaps right -4
 gaps left -4
+gaps top -3
+gaps bottom -3
 smart_gaps on
-
 # Borders
 default_border pixel 1
 smart_borders on
 
 # Start wezterm on login
 workspace 1 
-# exec wezterm start -- fish -i -C nitch 
-exec wezterm  
+exec wezterm start -- fish -i -C nitch 
+# exec wezterm  
 

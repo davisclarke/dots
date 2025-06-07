@@ -1,0 +1,25 @@
+output * bg #fafafa solid_color
+
+bar {
+  position top
+  height 20
+  # mode invisible
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:RobotoMono Nerd Font 11
+  status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs-jellybeans-light.toml
+
+  colors {
+      statusline #c1c1c1
+      background #c1c1c1
+      inactive_workspace #c1c1c1 #c1c1c1 #252525
+      focused_workspace #252525 #252525 #c1c1c1
+      urgent_workspace #a02020 #a02020 #c1c1c1
+      separator #888F94 }
+}
+
+client.focused #2952a3 #c1c1c1 #2952a3 #c1c1c1 #2952a3
+client.unfocused #f5e6d3 #c1c1c1 #252525 #c1c1c1 #c1c1c1
+client.focused_inactive #a66a10 #c1c1c1 #a66a10 #c1c1c1 #a66a10
+client.urgent #a02020 #c1c1c1 #a02020 #c1c1c1 #a02020
