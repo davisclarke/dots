@@ -1,0 +1,26 @@
+2025-06-11 21:11:26 Loading main app package /usr/lib/obsidian/obsidian.asar
+[1440433:0611/161126.959583:ERROR:object_proxy.cc(576)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.InvalidArgs: No such interface “org.freedesktop.portal.FileChooser”
+[1440433:0611/161126.959685:ERROR:select_file_dialog_linux_portal.cc(308)] Failed to read portal version property
+2025-06-11 21:11:27 Checking for update using Github
+2025-06-11 21:11:27 Success.
+2025-06-11 21:11:27 Latest version is 1.8.10
+2025-06-11 21:11:27 App is up to date.
+2025-06-11 21:11:43 Loading main app package /usr/lib/obsidian/obsidian.asar
+[1440963:0611/161143.703208:ERROR:object_proxy.cc(576)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/portal/desktop: org.freedesktop.DBus.Error.InvalidArgs: No such interface “org.freedesktop.portal.FileChooser”
+[1440963:0611/161143.703302:ERROR:select_file_dialog_linux_portal.cc(308)] Failed to read portal version property
+2025-06-11 21:11:43 Checking for update using Github
+2025-06-11 21:11:43 Success.
+2025-06-11 21:11:43 Latest version is 1.8.10
+2025-06-11 21:11:43 App is up to date.
+[1440963:0611/161431.615847:ERROR:network_service_instance_impl.cc(613)] Network service crashed, restarting service.
+[1440963:0611/161431.628083:ERROR:zygote_communication_linux.cc(296)] Failed to send GetTerminationStatus message to zygote
+[1440963:0611/161431.634272:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.634962:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.635380:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.635730:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.636026:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.636310:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.636669:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.636956:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.637257:ERROR:gpu_process_host.cc(975)] GPU process launch failed: error_code=1002
+[1440963:0611/161431.637268:FATAL:gpu_data_manager_impl_private.cc(423)] GPU process isn't usable. Goodbye.

@@ -2,10 +2,10 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/davisc/.gtkrc-2.0.mine"
-gtk-theme-name="kw"
-gtk-icon-theme-name="kw"
+gtk-theme-name="jellybeans-light"
+gtk-icon-theme-name="jellybeans-light"
 gtk-font-name="Roboto 11"
-gtk-cursor-theme-name="Bibata-Modern-Ice"
+gtk-cursor-theme-name="default"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

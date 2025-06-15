@@ -1,4 +1,4 @@
-output * bg #292522 solid_color
+output * bg #151515 solid_color
 
 bar {
   position top 
@@ -11,11 +11,11 @@ bar {
   status_command i3status-rs $HOME/.config/status-rs/melange/status-rs-melange-dark.toml
 
   colors {
-      statusline #403A36
-      background #403A36
-      inactive_workspace #403A36 #403A36 #ECE1D7
-      focused_workspace #403A36 #ECE1D7 #403A36
-      urgent_workspace #BD8183 #BD8183 #403A36
+      statusline #252525
+      background #252525
+      inactive_workspace #252525 #252525 #ECE1D7
+      focused_workspace #252525 #ECE1D7 #252525
+      urgent_workspace #BD8183 #BD8183 #252525
       separator #888F94 }
 }
 

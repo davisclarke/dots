@@ -16,7 +16,7 @@ configuration {
 	dpi:						1;
 }
 
-@theme "~/.config/rofi/jellybeans/jellybeans-light.rasi"
+@theme "~/.config/rofi/jellybeans/jellybeans-dark.rasi"
 
 /* ---- Global Properties ---- */
 * {

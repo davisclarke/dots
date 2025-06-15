@@ -24,6 +24,7 @@ cmake
 cmatrix
 discord
 dmidecode
+docker
 dropbox
 dwarffortress
 efibootmgr
@@ -59,7 +60,6 @@ interception-caps2esc
 iwd
 jq
 khal
-kitty
 lazygit
 libpulse
 libreoffice-still
@@ -70,6 +70,7 @@ luarocks
 lynx
 man-db
 meson
+milkytracker
 modemmanager
 nano
 neomutt
@@ -91,6 +92,7 @@ papirus-icon-theme
 paru
 paru-debug
 pavucontrol
+pd
 pipes.sh
 pipewire
 pipewire-alsa
@@ -98,6 +100,7 @@ pipewire-jack
 pipewire-pulse
 pkgstats
 playerctl
+plugdata-bin
 power-profiles-daemon
 powertop
 pulseaudio-alsa
@@ -165,6 +168,7 @@ ttf-terminus-nerd
 ueberzugpp
 unzip
 vim
+virtualbox
 vulkan-intel
 vulkan-radeon
 wezterm-git

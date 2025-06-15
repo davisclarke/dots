@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
 
 # Colors handled by dark_theme.sh and light_theme.sh respectively
-include /home/davisc/.config/sway/config.d/jellybeans_light 
+include /home/davisc/.config/sway/config.d/jellybeans_dark 
 
 # Variables 
 set $mod Mod4
@@ -22,8 +22,8 @@ exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DES
 exec swaync
 
 # Gamma and nightshift
-# exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
-exec wlsunset -t 3900 -T 3901 -l 0 -L 0 -g 1.25
+exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
+# exec wlsunset -t 3900 -T 3901 -l 0 -L 0 -g 1.25
 
 # Font
 # font pango:FiraCode Nerd Font 9
@@ -106,6 +106,7 @@ bindsym $mod+o mode "LOGOUT"
 bindsym $mod+q exec wezterm
 bindsym $mod+w exec floorp
 bindsym $mod+z exec zotero
+bindsym $mod+i exec obsidian --enable-features=ozone --ozone-platform=wayland --ozone-enable-wayland=true 
 bindsym $mod+d exec rofi -show drun
 
 # Resize windows 
@@ -240,8 +241,10 @@ gaps inner 8
 # gaps outer 1
 gaps right -4
 gaps left -4
-gaps top -3
-gaps bottom -3
+gaps top -2
+gaps bottom -2
+# gaps inner adds space both in between windows and around them...remove the space around.
+
 smart_gaps on
 # Borders
 default_border pixel 1
