@@ -3,7 +3,7 @@ local config = {}
 
 -- Cursor
 config.hide_mouse_cursor_when_typing = true
-
+config.force_reverse_video_cursor = true
 -- Fonts and window
 config.font = wezterm.font_with_fallback({ "RobotoMono Nerd Font", "FiraCode Nerd Font" })
 config.font_size = 11
@@ -42,50 +42,78 @@ local function tab_title(tab_info)
 	end
 	-- Otherwise, use the title from the active pane
 	-- in that tab
-	-- return tab_info.active_pane.title, tab_info.tab_index
-	return tab_info.tab_index
+	return tab_info.active_pane.title, tab_info.tab_index
+	-- return tab_info.tab_index
 end
-
-local function tab_theme(
-	active_tab_background,
-	inactive_tab_background,
-	_active_tab_foreground,
-	inactive_tab_foreground
-)
-	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
-		-- local _title, index = tab_title(tab)
-		local index = tab_title(tab)
-		-- title = wezterm.truncate_right(title, max_width - 2)
+-- local function right_tab_theme(tab_background, tab_foreground) end
+local function tab_theme(tab_background, tab_foreground, status_foreground)
+	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, max_width)
+		local title, index = tab_title(tab)
+		title = wezterm.truncate_right(title, max_width - 2)
 		if tab.is_active then
 			return {
-				{ Background = { Color = inactive_tab_background } },
-				{ Foreground = { Color = inactive_tab_foreground } },
-				{ Text = " " .. index .. "*" },
-				{ Foreground = { Color = inactive_tab_background } },
+				{ Background = { Color = tab_background } },
+				{ Foreground = { Color = status_foreground } },
+				{ Text = "  " },
+				{ Foreground = { Color = tab_foreground } },
+				{ Text = index .. " " .. title .. " " },
+				{ Foreground = { Color = tab_background } },
 			}
 		else
 			return {
-				{ Background = { Color = inactive_tab_background } },
-				{ Foreground = { Color = inactive_tab_foreground } },
-				{ Text = " " .. index .. " " },
+
+				{ Background = { Color = tab_background } },
+				{ Foreground = { Color = status_foreground } },
+				{ Text = "  " },
+				{ Foreground = { Color = tab_foreground } },
+				{ Text = index .. " " .. title .. " " },
+				{ Foreground = { Color = tab_background } },
 			}
 		end
 	end)
 
 	config.window_frame = {
-		font = wezterm.font({ family = "FiraCode Nerd Font", weight = "Regular" }),
-		font_size = 11.0,
-		active_titlebar_bg = inactive_tab_background,
-		inactive_titlebar_bg = inactive_tab_background,
+		font = wezterm.font({ family = "RobotoMono Nerd Font", weight = "Regular" }),
+		font_size = 12.0,
+		active_titlebar_bg = tab_background,
+		inactive_titlebar_bg = tab_background,
 	}
+
+	wezterm.on("update-right-status", function(window, _)
+		local cells = {}
+		local date = wezterm.strftime(" %H:%M, %b %-d")
+		table.insert(cells, date)
+
+		-- An entry for each battery (typically 0 or 1 battery)
+		for _, b in ipairs(wezterm.battery_info()) do
+			table.insert(cells, string.format("󰁹 %.0f%%", b.state_of_charge * 100))
+		end
+
+		-- The elements to be formatted
+		local elements = {}
+
+		-- Translate a cell into elements
+		local function push(text)
+			table.insert(elements, { Foreground = { Color = tab_foreground } })
+			table.insert(elements, { Background = { Color = tab_background } })
+			table.insert(elements, { Text = " " .. text .. " " })
+		end
+
+		while #cells > 0 do
+			local cell = table.remove(cells, 1)
+			push(cell)
+		end
+
+		window:set_right_status(wezterm.format(elements))
+	end)
 end
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 if use_dark_theme then
 	config.colors = {
-		foreground = "#e8e8d3",
-		background = "#151515",
+		foreground = "#e8e8d3", --Muted fg/bg
+		background = "#101010",
 		cursor_fg = "#151515",
 		cursor_bg = "#e8e8d3",
 		cursor_border = "#e8e8d3",
@@ -93,7 +121,7 @@ if use_dark_theme then
 		selection_bg = "#888888",
 		compose_cursor = "#e8e8d3",
 		visual_bell = "#40000a",
-		split = "#252525",
+		split = "#99ad6a",
 
 		ansi = {
 			"#101010",
@@ -103,7 +131,7 @@ if use_dark_theme then
 			"#8fbfdc",
 			"#c6b6ee",
 			"#668799",
-			"#ffffff",
+			"#d4d4d4",
 		},
 		brights = {
 			"#404040",
@@ -117,10 +145,10 @@ if use_dark_theme then
 		},
 		tab_bar = {
 			inactive_tab_edge = "#252525",
-			background = "#252525",
+			background = "#99ad6a",
 		},
 	}
-	tab_theme("#252525", "#252525", "#e8e8d3", "#e8e8d3")
+	tab_theme("#99ad6a", "#101010", "#101010")
 else
 	config.colors = {
 		foreground = "#252525",
@@ -158,84 +186,9 @@ else
 			background = "#C1C1C1",
 		},
 	}
-
-	tab_theme("#C1C1C1", "#C1C1C1", "#252525", "#252525")
+	tab_theme("#C1C1C1", "#252525", "#234291")
 end
--- if use_dark_theme then
--- 	config.colors = {
--- 		foreground = "#ECE1D7",
--- 		background = "#292522",
--- 		cursor_bg = "#ECE1D7",
--- 		cursor_border = "#ECE1D7",
--- 		cursor_fg = "#292522",
--- 		selection_bg = "#403A36",
--- 		selection_fg = "#ECE1D7",
--- 		split = "#403A36",
---
--- 		ansi = {
--- 			"#34302C",
--- 			"#BD8183",
--- 			"#78997A",
--- 			"#E49B5D",
--- 			"#7F91B2",
--- 			"#B380B0",
--- 			"#7B9695",
--- 			"#C1A78E",
--- 		},
--- 		brights = {
--- 			"#867462",
--- 			"#D47766",
--- 			"#85B695",
--- 			"#EBC06D",
--- 			"#A3A9CE",
--- 			"#CF9BC2",
--- 			"#89B3B6",
--- 			"#ECE1D7",
--- 		},
--- 		tab_bar = {
--- 			inactive_tab_edge = "#403A36",
--- 			background = "#403A36",
--- 		},
--- 	}
--- 	tab_theme("#403A36", "#403A36", "#ECE1D7", "#ECE1D7")
--- else
--- 	config.colors = {
--- 		foreground = "#54433A",
--- 		background = "#F1F1F1",
--- 		cursor_bg = "#54433A",
--- 		cursor_border = "#54433A",
--- 		cursor_fg = "#F1F1F1",
--- 		selection_bg = "#D9D3CE",
--- 		selection_fg = "#54433A",
--- 		split = "#C1C1C1",
--- 		ansi = {
--- 			"#E9E1DB",
--- 			"#C77B8B",
--- 			"#6E9B72",
--- 			"#BC5C00",
--- 			"#7892BD",
--- 			"#BE79BB",
--- 			"#739797",
--- 			"#7D6658",
--- 		},
--- 		brights = {
--- 			"#A98A78",
--- 			"#BF0021",
--- 			"#3A684A",
--- 			"#A06D00",
--- 			"#465AA4",
--- 			"#904180",
--- 			"#3D6568",
--- 			"#54433A",
--- 		},
--- 		tab_bar = {
--- 			inactive_tab_edge = "#D9D3CE",
--- 			background = "#C1C1C1",
--- 		},
--- 	}
---
--- 	tab_theme("#C1C1C1", "#C1C1C1", "#54433A", "#54433A")
--- end
+
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 32
 config.show_new_tab_button_in_tab_bar = false
@@ -354,7 +307,7 @@ config.keys = {
 		mods = "LEADER",
 		action = act.PromptInputLine({
 			description = "Enter new name for tab",
-			action = wezterm.action_callback(function(window, pane, line)
+			action = wezterm.action_callback(function(window, _, line)
 				if line then
 					window:active_tab():set_title(line)
 				end
@@ -376,7 +329,7 @@ config.keys = {
 		mods = "LEADER|SHIFT",
 		action = act.PromptInputLine({
 			description = "Enter new name for session",
-			action = wezterm.action_callback(function(window, pane, line)
+			action = wezterm.action_callback(function(window, _, line)
 				if line then
 					mux.rename_workspace(window:mux_window():get_workspace(), line)
 				end

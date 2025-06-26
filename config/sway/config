@@ -18,11 +18,15 @@ xwayland enable
 # Dbus environment
 exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
 
+# Waybar
+# exec waybar
+
 # Notifications
 exec swaync
 
 # Gamma and nightshift
-exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
+# exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
+exec wlsunset -t 1000 -T 5500 -S 08:00 -s 23:00 -g 1.1
 # exec wlsunset -t 3900 -T 3901 -l 0 -L 0 -g 1.25
 
 # Font
@@ -70,7 +74,7 @@ exec swayidle -w \
 
 bindsym $mod+b bar mode invisible 
 bindsym $mod+Space bar mode dock 
-
+# bindsym $mod+b exec killall -SIGUSR1 waybar
 ### Keybinds ###
 # System 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -103,8 +107,9 @@ bindsym $mod+o mode "LOGOUT"
 
 # Launchers 
 # bindsym $mod+q exec wezterm start -- fish -i -C nitch 
-bindsym $mod+q exec wezterm
-bindsym $mod+w exec floorp
+bindsym $mod+q exec kitty
+bindsym $mod+w exec thorium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland
+# bindsym $mod+w exec floorp
 bindsym $mod+z exec zotero
 bindsym $mod+i exec obsidian --enable-features=ozone --ozone-platform=wayland --ozone-enable-wayland=true 
 bindsym $mod+d exec rofi -show drun
@@ -237,12 +242,12 @@ bindsym $mod+Shift+m exec sh /home/davisc/.config/sway/light_theme.sh
 
 ### Window behavior ###
 # Gaps
-gaps inner 8
+gaps inner 10
 # gaps outer 1
-gaps right -4
-gaps left -4
-gaps top -2
-gaps bottom -2
+gaps right -7
+gaps left -7
+gaps top -8
+gaps bottom -8
 # gaps inner adds space both in between windows and around them...remove the space around.
 
 smart_gaps on
@@ -252,6 +257,6 @@ smart_borders on
 
 # Start wezterm on login
 workspace 1 
-exec wezterm start -- fish -i -C nitch 
+exec kitty -e fish -i -C nitch 
 # exec wezterm  
 

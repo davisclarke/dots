@@ -3,11 +3,10 @@ output * bg #f9f9f9 solid_color
 bar {
   position top
   height 20
-  # mode invisible
   mode dock
   status_padding 0
   tray_output none
-  font pango:RobotoMono Nerd Font 11
+  font pango:RobotoMono Nerd Font 12
   status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs-jellybeans-light.toml
 
   colors {

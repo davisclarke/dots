@@ -15,6 +15,11 @@ block = "music"
 format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
 
 [[block]]
+block = "notify"
+driver = "swaync"
+format = "{ $icon $notification_count| }"
+
+[[block]]
 block = "time"
 interval = 5
 # format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
@@ -54,10 +59,6 @@ critical = 10
 empty_threshold = 0
 info = 40
 
-[[block]]
-block = "notify"
-driver = "swaync"
-format = " $icon{$notification_count|} "
 
 [[block]]
 block = "net"
@@ -75,7 +76,7 @@ critical_mem = 90
 
 [[block]]
 block = "cpu"
-interval = 1
+interval = 3
 format = " $icon $barchart $utilization "
 # [[block]]
 # block = "packages"

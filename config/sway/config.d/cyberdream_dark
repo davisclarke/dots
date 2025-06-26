@@ -1,23 +1,23 @@
 output * bg #000000 solid_color
 
-bar {
-  position top 
-  height 18
-  # mode invisible
-  mode dock
-  status_padding 0
-  tray_output none
-  font pango:RobotoMono Nerd Font 11
-  status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs-jellybeans-dark.toml
-
-  colors {
-      statusline #16181a
-      background #16181a
-      inactive_workspace #16181a #16181a #ffffff
-      focused_workspace #16181a #ffffff #16181a
-      urgent_workspace #ff6e5e #ff6e5e #16181a
-      separator #888F94 }
-}
+# bar {
+#   position top 
+#   height 18
+#   # mode invisible
+#   mode dock
+#   status_padding 0
+#   tray_output none
+#   font pango:RobotoMono Nerd Font 11
+#   status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs-jellybeans-dark.toml
+# 
+#   colors {
+#       statusline #16181a
+#       background #16181a
+#       inactive_workspace #16181a #16181a #ffffff
+#       focused_workspace #16181a #ffffff #16181a
+#       urgent_workspace #ff6e5e #ff6e5e #16181a
+#       separator #888F94 }
+# }
 
 client.focused #5ea1ff #16181a #5ea1ff #16181a #5ea1ff
 client.unfocused #3c4048 #16181a #ffffff #16181a #16181a

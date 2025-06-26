@@ -3,6 +3,7 @@ icons_format = "{icon}"
 [theme]
 theme = "/home/davisc/.config/status-rs/jellybeans/jellybeans-light-colors.toml"
 
+
 [icons]
 icons = "material-nf"
 
@@ -49,6 +50,7 @@ block = "battery"
 driver = "upower"
 format = " $icon $percentage "
 good = 40
+interval = 30
 warning = 20
 critical = 10
 empty_threshold = 0
@@ -69,14 +71,14 @@ error_format = "   "
 block = "memory"
 # format = " $icon $mem_used_percents.eng(w:1) "
 format = " 󰍛 $mem_used.eng(w:1) " 
-interval = 30
+interval = 15
 warning_mem = 70
 critical_mem = 90
 
 [[block]]
 block = "cpu"
-interval = 1
-format = " $icon $barchart $utilization "
+interval = 15
+format = " $icon $utilization "
 # [[block]]
 # block = "packages"
 # package_manager = ["pacman", "aur"]
@@ -90,7 +92,7 @@ format = " $icon $barchart $utilization "
 [[block]]
 block = "temperature"
 format = " $icon {$average}μ,  $max "
-interval = 10
+interval = 15
 chip = "*-isa-*"
 
 [[block]]
@@ -98,4 +100,4 @@ block = "sound"
 format = " $icon {$volume|} "
 [[block]]
 block = "backlight"
-device = "intel_backlight"
+evice = "intel_backlight"
