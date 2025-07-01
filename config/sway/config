@@ -109,7 +109,7 @@ bindsym $mod+o mode "LOGOUT"
 # bindsym $mod+q exec wezterm start -- fish -i -C nitch 
 bindsym $mod+q exec kitty
 bindsym $mod+w exec thorium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland
-# bindsym $mod+w exec floorp
+# bindsym $mod+w exec 
 bindsym $mod+z exec zotero
 bindsym $mod+i exec obsidian --enable-features=ozone --ozone-platform=wayland --ozone-enable-wayland=true 
 bindsym $mod+d exec rofi -show drun
