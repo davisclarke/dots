@@ -4,6 +4,7 @@ icons_format = "{icon}"
 theme = "/home/davisc/.config/status-rs/jellybeans/jellybeans-light-colors.toml"
 
 
+
 [icons]
 icons = "material-nf"
 
@@ -14,6 +15,11 @@ music_pause = "\U000f040a" # nf-md-play
 [[block]]
 block = "music"
 format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
+
+[[block]]
+block = "notify"
+driver = "swaync"
+format = "{ $icon $notification_count|}"
 
 [[block]]
 block = "time"
@@ -50,16 +56,11 @@ block = "battery"
 driver = "upower"
 format = " $icon $percentage "
 good = 40
-interval = 30
 warning = 20
 critical = 10
 empty_threshold = 0
 info = 40
 
-[[block]]
-block = "notify"
-driver = "swaync"
-format = "{ $icon $notification_count|}"
 
 [[block]]
 block = "net"
@@ -71,14 +72,14 @@ error_format = "   "
 block = "memory"
 # format = " $icon $mem_used_percents.eng(w:1) "
 format = " 󰍛 $mem_used.eng(w:1) " 
-interval = 15
+interval = 30
 warning_mem = 70
 critical_mem = 90
 
 [[block]]
 block = "cpu"
-interval = 15
-format = " $icon $utilization "
+interval = 3
+format = " $icon $barchart $utilization "
 # [[block]]
 # block = "packages"
 # package_manager = ["pacman", "aur"]
@@ -92,7 +93,7 @@ format = " $icon $utilization "
 [[block]]
 block = "temperature"
 format = " $icon {$average}μ,  $max "
-interval = 15
+interval = 10
 chip = "*-isa-*"
 
 [[block]]
@@ -101,3 +102,4 @@ format = " $icon {$volume|} "
 [[block]]
 block = "backlight"
 device = "intel_backlight"
+

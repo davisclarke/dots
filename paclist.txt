@@ -49,6 +49,7 @@ github-cli
 glow
 gnome-disk-utility
 gobject-introspection
+gptfdisk
 greetd
 grim
 grub
@@ -91,12 +92,14 @@ neovim
 networkmanager
 nim
 niri
+nm-connection-editor
 notion-app-electron
 notion-calendar-electron
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 npm
+ntfs-3g
 nwg-look
 obsidian
 openvpn
@@ -196,6 +199,7 @@ wireguard-tools
 wireless_tools
 wl-clipboard
 wlsunset
+woeusb
 xdg-dbus-proxy
 xdg-desktop-portal
 xdg-desktop-portal-wlr

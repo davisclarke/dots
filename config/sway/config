@@ -106,8 +106,7 @@ bindsym $mod+o mode "LOGOUT"
 
 
 # Launchers 
-# bindsym $mod+q exec wezterm start -- fish -i -C nitch 
-bindsym $mod+q exec kitty
+bindsym $mod+q exec kitty -e fish -i -C nitch 
 bindsym $mod+w exec thorium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland
 # bindsym $mod+w exec 
 bindsym $mod+z exec zotero
