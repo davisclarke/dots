@@ -17,7 +17,7 @@ format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
 [[block]]
 block = "notify"
 driver = "swaync"
-format = "{ $icon $notification_count|}"
+format = "{ $icon $notification_count |}"
 
 [[block]]
 block = "time"

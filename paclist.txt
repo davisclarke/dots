@@ -193,7 +193,6 @@ virtualbox
 vulkan-intel
 vulkan-radeon
 waybar
-wezterm-git
 wget
 wireguard-tools
 wireless_tools
