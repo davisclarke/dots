@@ -7,7 +7,8 @@ bar {
   status_padding 0
   tray_output none
   font pango:RobotoMono Nerd Font 12
-  status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs-jellybeans-light.toml
+  status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs.toml
+  strip_workspace_numbers yes
 
   colors {
       statusline #c1c1c1

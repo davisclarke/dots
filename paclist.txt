@@ -16,6 +16,7 @@ brightnessctl
 btop
 btrfs-progs
 calcurse
+calibre
 catch2
 ccls
 chafa
@@ -31,6 +32,7 @@ dropbox
 dwarffortress
 efibootmgr
 emacs
+ethtool
 eza
 fastfetch
 fd
@@ -58,6 +60,7 @@ gtk-engines
 himalaya
 htop
 hyperfine
+hyprland
 i3status-rust
 intel-media-driver
 intel-ucode
@@ -118,7 +121,6 @@ pipewire-pulse
 pkgstats
 playerctl
 plugdata-bin
-power-profiles-daemon
 powertop
 pulseaudio-alsa
 python-pip
@@ -127,6 +129,7 @@ qt6-wayland
 reflector
 rofi-wayland
 rsync
+sbctl
 seatd
 slurp
 smartmontools
@@ -174,6 +177,8 @@ thorium-browser-bin
 thunar
 ticktick
 timeshift
+tlp
+tlpui
 tmux
 tokei
 tree
@@ -214,7 +219,6 @@ xorg-xwayland
 zathura
 zathura-pdf-mupdf
 zed
-zellij
 zig
 zip
 zotero

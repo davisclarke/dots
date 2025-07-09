@@ -5,6 +5,7 @@ sed -i "s/vim.opt.background = 'light'/vim.opt.background = 'dark'/g" /home/davi
 kitten themes --cache-age=-1 --reload-in=all Jellybeans 
 sed -i 's/jellybeans_light/jellybeans_dark/g' /home/davisc/.config/sway/config
 sed -i 's/jellybeans-light.rasi/jellybeans-dark.rasi/g' /home/davisc/.config/rofi/config.rasi
+sed -i 's/jellybeans-light/jellybeans-dark/g' /home/davisc/.config/status-rs/jellybeans/status-rs.toml
 sed -i 's/"mode": "light"/"mode": "dark"/g' /home/davisc/.config/zed/settings.json
 sed -i 's/jellybeans-light.css/jellybeans-dark.css/g' /home/davisc/.config/swaync/style.css
 sed -i 's/include light-256.theme/include dark-256.theme/g' /home/davisc/.taskrc

@@ -7,18 +7,19 @@ bar {
   status_padding 0
   tray_output none
   font pango:RobotoMono Nerd Font 12
-  status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs-jellybeans-dark.toml
+  status_command i3status-rs $HOME/.config/status-rs/jellybeans/status-rs.toml
+  strip_workspace_numbers yes
 
   colors {
       statusline #1c1c1c
       background #1c1c1c
       inactive_workspace #1c1c1c #1c1c1c #d8d8d8
-      focused_workspace #1c1c1c #d8d8d8 #1c1c1c
-      urgent_workspace #B05050 #B05050 #1c1c1c
+      focused_workspace #303030 #303030 #d8d8d8
+      urgent_workspace #902020 #902020 #d8d8d8
       separator #888F94 }
 }
 
 client.focused #8fbfdc #1c1c1c #8fbfdc #1c1c1c #8fbfdc
 client.unfocused #404040 #1c1c1c #d8d8d8 #1c1c1c #1c1c1c
 client.focused_inactive #ffb964 #1c1c1c #ffb964 #1c1c1c #ffb964
-client.urgent #B05050 #1c1c1c #B05050 #1c1c1c #B05050
+client.urgent #902020 #1c1c1c #902020 #1c1c1c #902020
