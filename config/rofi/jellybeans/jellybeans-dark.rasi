@@ -1,6 +1,6 @@
 * {
-  base: #0a0a0a;
-  text: #e8e8d3;
+  base: #151515;
+  text: #e8e8e3;
   red: #cf6a4c;
 }
 * {

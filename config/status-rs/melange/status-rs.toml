@@ -1,8 +1,7 @@
-
 icons_format = "{icon}"
 
 [theme]
-theme = "/home/davisc/.config/status-rs/jellybeans/jellybeans-dark-colors.toml"
+theme = "/home/davisc/.config/status-rs/melange/melange-light-colors.toml"
 
 
 
@@ -12,12 +11,12 @@ icons = "material-nf"
 [icons.overrides]
 music_play = "\U000f03e4" # nf-md-pause
 music_pause = "\U000f040a" # nf-md-play
-# bat = [
-#     "󱊡",
-#     "󱊢",
-#     "󱊣",
-# ]
-# bat_charging = "󱐋"
+bat = [
+    "󱊡",
+    "󱊢",
+    "󱊣",
+]
+bat_charging = "󱐋"
 
 [[block]]
 block = "music"

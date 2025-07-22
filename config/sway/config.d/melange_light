@@ -1,25 +1,26 @@
+# output * bg ~/Downloads/unnamed.jpg fill #292522
 output * bg #F1F1F1 solid_color
-
 bar {
   position top
-  height 20
+  height 18
   # mode invisible
   mode dock
   status_padding 0
   tray_output none
-  font pango:RobotoMono Nerd Font 11
-  status_command i3status-rs $HOME/.config/status-rs/melange/status-rs-melange-light.toml
+  font pango:MapleMono 12
+  status_command i3status-rs $HOME/.config/status-rs/melange/status-rs.toml
+  strip_workspace_numbers yes
 
   colors {
-      statusline #c1c1c1
-      background #c1c1c1
-      inactive_workspace #c1c1c1 #c1c1c1 #54433A
-      focused_workspace #54433A #54433A #c1c1c1
-      urgent_workspace #BF0021 #BF0021 #c1c1c1
+      statusline #e9e1db
+      background #e9e1db
+      inactive_workspace #e9e1db #e9e1db #54433A
+      focused_workspace #e9e1db #e9e1db #BC5C00
+      urgent_workspace #e9e1db #e9e1db #BF0021
       separator #888F94 }
 }
 
 client.focused #465AA4 #c1c1c1 #465AA4 #c1c1c1 #465AA4
-client.unfocused #E9E1DB #c1c1c1 #54433A #c1c1c1 #c1c1c1
+client.unfocused #c1c1c1 #c1c1c1 #54433A #c1c1c1 #c1c1c1
 client.focused_inactive #A06D00 #c1c1c1 #A06D00 #c1c1c1 #A06D00
 client.urgent #BF0021 #c1c1c1 #BF0021 #c1c1c1 #BF0021

@@ -26,18 +26,18 @@ exec swaync
 
 # Gamma and nightshift
 # exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
-exec wlsunset -t 1000 -T 5500 -S 08:00 -s 23:00 -g 1.1
+exec wlsunset -t 3000 -T 6000 -S 08:00 -s 23:00 
+# -g 1.1
 # exec wlsunset -t 3900 -T 3901 -l 0 -L 0 -g 1.25
 
 # Font
-# font pango:FiraCode Nerd Font 9
-font pango:RobotoMono Nerd Font 10
+font pango:JetBrainsMono Nerd Font 11
 
 # Esc and CapsLock swapped via caps2escape, make repeat delay slightly faster 
-input "type:keyboard" {
-  repeat_delay 200
-
-}
+# input "type:keyboard" {
+#   repeat_delay 200
+#
+# }
 
 # Cursor Theme
 seat seat0 xcursor_theme Bibata-Modern-Ice 20
@@ -108,11 +108,12 @@ bindsym $mod+o mode "LOGOUT"
 # Launchers 
 # bindsym $mod+q exec kitty --single-instance -e fish -i -C nitch 
 bindsym $mod+q exec kitty -e fish -i -C nitch 
-bindsym $mod+w exec thorium-browser --enable-features=UseOzonePlatform --ozone-platform=wayland
+# bindsym $mod+q exec kitty 
+bindsym $mod+w exec librewolf
 # bindsym $mod+w exec 
 bindsym $mod+z exec zotero
 bindsym $mod+i exec obsidian --enable-features=ozone --ozone-platform=wayland --ozone-enable-wayland=true 
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+t exec rofi -show drun
 
 # Resize windows 
 mode "RESIZE" {
@@ -210,14 +211,7 @@ bindsym $mod+7 workspace 7:WEB
 bindsym $mod+8 workspace 8:MSC
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-# bindsym $mod+d mode "WORKSPACE"
-# mode "WORKSPACE" {
-#   bindsym 1 workspace number 5
-#   bindsym 2 workspace number 6
-#   bindsym 3 workspace number 7
-#   bindsym 4 workspace number 8
-#   bindsym Escape mode default
-# }
+
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
 
@@ -250,12 +244,17 @@ bindsym $mod+Shift+m exec sh /home/davisc/.config/sway/light_theme.sh
 
 ### Window behavior ###
 # Gaps
-gaps inner 10
+gaps inner 12
 # gaps outer 1
-gaps right -7
-gaps left -7
-gaps top -8
-gaps bottom -8
+# gaps right -7
+# gaps left -7
+# gaps top -8
+# gaps bottom -8
+
+gaps right -10
+gaps left -10
+gaps top -12
+gaps bottom -12
 # gaps inner adds space both in between windows and around them...remove the space around.
 
 smart_gaps on
@@ -267,5 +266,6 @@ smart_borders on
 workspace number 1
 # exec kitty --single-instance -e fish -i -C nitch 
 exec kitty -e fish -i -C nitch 
+# exec kitty 
 # exec wezterm  
 

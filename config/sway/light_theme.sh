@@ -12,6 +12,7 @@ sed -i 's/jellybeans-dark.css/jellybeans-light.css/g' /home/davisc/.config/swayn
 sed -i 's/include dark-256.theme/include light-256.theme/g' /home/davisc/.taskrc
 gsettings set org.gnome.desktop.interface gtk-theme "jellybeans-light"
 gsettings set org.gnome.desktop.interface icon-theme 'jellybeans-light'
+# gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
 swaync-client -rs
 swaymsg reload
 

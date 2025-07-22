@@ -69,6 +69,7 @@ iwd
 java-runtime-common
 jdk21-openjdk
 jq
+julia
 khal
 kitty
 lazygit
@@ -85,6 +86,7 @@ linux-firmware
 luarocks
 lynx
 man-db
+maplemono-ttf
 meson
 milkytracker
 modemmanager
@@ -106,6 +108,8 @@ ntfs-3g
 nwg-look
 obsidian
 openvpn
+otf-commit-mono
+otf-commit-mono-nerd
 otf-geist-mono-nerd
 pacman-contrib
 papirus-icon-theme
@@ -127,6 +131,7 @@ python-pip
 python-pipx
 qt6-wayland
 reflector
+rio
 rofi-wayland
 rsync
 sbctl
@@ -146,6 +151,7 @@ swaybg
 swayidle
 swaylock
 swaync
+swww
 syncthing
 systemd-resolvconf
 task
@@ -173,7 +179,6 @@ texlive-pstricks
 texlive-publishers
 texlive-xetex
 themix-full-git
-thorium-browser-bin
 thunar
 ticktick
 timeshift
@@ -182,14 +187,22 @@ tlpui
 tmux
 tokei
 tree
+ttf-comic-shanns-nerd
+ttf-dm-mono-git
 ttf-firacode-nerd
 ttf-font-icons
 ttf-ibmplex-mono-nerd
 ttf-iosevka-nerd
+ttf-iosevkatermslab-nerd
 ttf-jetbrains-mono-nerd
+ttf-juliamono
+ttf-juliamono-nerd-font
 ttf-nerd-fonts-symbols
+ttf-recursive-nerd
 ttf-roboto-mono-nerd
+ttf-sourcecodepro-nerd
 ttf-terminus-nerd
+ttf-victor-mono-nerd
 typometer
 ueberzugpp
 unzip

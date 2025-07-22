@@ -5,7 +5,7 @@ local config = {}
 config.hide_mouse_cursor_when_typing = true
 config.force_reverse_video_cursor = true
 -- Fonts and window
-config.font = wezterm.font_with_fallback({ "RobotoMono Nerd Font", "FiraCode Nerd Font" })
+config.font = wezterm.font_with_fallback({ "CommitMono Nerd Font", "FiraCode Nerd Font" })
 config.font_size = 11
 
 config.freetype_load_target = "Normal"
@@ -31,7 +31,7 @@ config.unix_domains = {
 }
 
 -- Colors
-local use_dark_theme = false
+local use_dark_theme = true
 -- NOTE: Above line is controlled by ~/.config/sway/dark_theme.sh and ~/.config/sway/light_theme.sh
 
 local function tab_title(tab_info)
