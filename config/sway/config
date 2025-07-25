@@ -108,6 +108,9 @@ bindsym $mod+o mode "LOGOUT"
 # Launchers 
 # bindsym $mod+q exec kitty --single-instance -e fish -i -C nitch 
 bindsym $mod+q exec kitty -e fish -i -C nitch 
+# bindsym $mod+q exec wezterm  
+# -- fish -i -C nitch 
+# bindsym $mod+q exec foot -e fish -i -C nitch 
 # bindsym $mod+q exec kitty 
 bindsym $mod+w exec librewolf
 # bindsym $mod+w exec 
@@ -262,10 +265,11 @@ smart_gaps on
 default_border pixel 1
 smart_borders on
 
-# Start wezterm on login
+# Start term on login
 workspace number 1
 # exec kitty --single-instance -e fish -i -C nitch 
 exec kitty -e fish -i -C nitch 
+# exec foot -e fish -i -C tmux 
 # exec kitty 
 # exec wezterm  
 

@@ -5,9 +5,9 @@ local config = {}
 config.hide_mouse_cursor_when_typing = true
 config.force_reverse_video_cursor = true
 -- Fonts and window
-config.font = wezterm.font_with_fallback({ "CommitMono Nerd Font", "FiraCode Nerd Font" })
+config.font = wezterm.font_with_fallback({ "RobotoMono Nerd Font", "FiraCode Nerd Font" })
+-- config.font = "FiraCode Nerd Font"
 config.font_size = 11
-
 config.freetype_load_target = "Normal"
 config.freetype_render_target = "Normal"
 
@@ -56,7 +56,7 @@ local function tab_theme(tab_background, tab_foreground, status_foreground)
 				{ Foreground = { Color = status_foreground } },
 				{ Text = "  " },
 				{ Foreground = { Color = tab_foreground } },
-				{ Text = index .. " " .. title .. " " },
+				{ Text = index .. ": " .. title .. " " },
 				{ Foreground = { Color = tab_background } },
 			}
 		else
@@ -66,7 +66,7 @@ local function tab_theme(tab_background, tab_foreground, status_foreground)
 				{ Foreground = { Color = status_foreground } },
 				{ Text = "  " },
 				{ Foreground = { Color = tab_foreground } },
-				{ Text = index .. " " .. title .. " " },
+				{ Text = index .. ": " .. title .. " " },
 				{ Foreground = { Color = tab_background } },
 			}
 		end
@@ -112,14 +112,14 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 if use_dark_theme then
 	config.colors = {
-		foreground = "#e8e8d3", --Muted fg/bg
-		background = "#101010",
+		foreground = "#e8e8e3", --Muted fg/bg
+		background = "#151515",
 		cursor_fg = "#151515",
-		cursor_bg = "#e8e8d3",
-		cursor_border = "#e8e8d3",
+		cursor_bg = "#e8e8e3",
+		cursor_border = "#e8e8e3",
 		selection_fg = "#151515",
 		selection_bg = "#888888",
-		compose_cursor = "#e8e8d3",
+		compose_cursor = "#e8e8e3",
 		visual_bell = "#40000a",
 		split = "#99ad6a",
 

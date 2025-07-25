@@ -1,5 +1,4 @@
 7zip
-alacritty
 alsa-utils
 anki
 base
@@ -23,6 +22,7 @@ chafa
 clang
 cmake
 cmatrix
+cowsay
 discord
 dmidecode
 docker
@@ -40,7 +40,6 @@ feh
 firewalld
 fish
 flatpak
-floorp-bin
 foot
 fzf
 gcalcli-git
@@ -211,6 +210,7 @@ virtualbox
 vulkan-intel
 vulkan-radeon
 waybar
+wezterm-git
 wget
 wireguard-tools
 wireless_tools
