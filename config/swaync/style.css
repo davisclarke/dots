@@ -1,8 +1,8 @@
-@import 'melange-light.css';
+@import 'jellybeans-dark.css';
 
 * {
-  font-family: JuliaMono;
-  font-size: 11px;
+  font-family: JetBrainsMonoNL Nerd Font;
+  font-size: 12px;
   border-radius: 0px;
 }
 

@@ -1,5 +1,5 @@
 font_size 12
-modify_font cell_height 90% 
+modify_font cell_height -2px 
 # modify_font cell_height 100% 
 text_composition_strategy legacy
 
@@ -20,7 +20,7 @@ confirm_os_window_close 0
 resize_debounce_time 0 0 
 input_delay 2
 #: Tab bar {{{
-tab_bar_style separator
+tab_bar_style custom
 tab_bar_align  left
 tab_activity_symbol none
 # tab_separator slanted
@@ -35,7 +35,7 @@ tab_title_template " {index}: {title} "
 active_tab_font_style   bold
 
 # BEGIN_KITTY_FONTS
-font_family      family="JetBrainsMono Nerd Font"
+font_family      family="JetBrains Mono"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -89,11 +89,11 @@ map alt+u kitten unicode_input
 # window's size.
 map ctrl+. layout_action bias 80
 
-# clear_all_shortcuts yes
+clear_all_shortcuts no
 enable_audio bell no
 
 
 # BEGIN_KITTY_THEME
-# Jellybeans-Light
+# Black Metal
 include current-theme.conf
 # END_KITTY_THEME

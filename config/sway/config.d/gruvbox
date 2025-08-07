@@ -1,0 +1,25 @@
+output * bg #1d2021 solid_color
+
+bar {
+  position top 
+  height 18
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:JetBrainsMonoNL 12
+  status_command i3status-rs $HOME/.config/status-rs/gruvbox/status-rs.toml
+  strip_workspace_numbers yes
+
+  colors {
+      statusline #282828
+      background #282828
+      inactive_workspace #282828 #282828 #ebdbb2
+      focused_workspace #282828 #282828 #fe8019
+      urgent_workspace #282828 #282828 #cc241d
+      separator #928374 }
+}
+
+client.focused #fe8019 #1c1c1c #fe8019 #fe8019 #fe8019
+client.unfocused #928374 #1c1c1c #ebdbb2 #928374 #928374
+client.focused_inactive #928374 #1c1c1c #928374 #928374 #928374
+client.urgent #cc241d #1c1c1c #cc241d #1c1c1c #cc241d

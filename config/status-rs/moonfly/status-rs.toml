@@ -1,8 +1,8 @@
+
 icons_format = "{icon}"
 
 [theme]
-theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
-
+theme = "/home/davisc/.config/status-rs/moonfly/moonfly-colors.toml"
 
 
 [icons]
@@ -16,7 +16,7 @@ music_pause = "\U000f040a" # nf-md-play
 #     "󱊢",
 #     "󱊣",
 # ]
-bat_charging = "󱐋"
+# bat_charging = "󱐋"
 
 [[block]]
 block = "music"

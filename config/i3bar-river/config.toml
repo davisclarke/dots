@@ -1,0 +1,30 @@
+# The status generator command.
+# Optional: with no status generator the bar will display only tags and layout name.
+command = "i3status-rs /home/davisc/.config/status-rs/gruvbox/status-rs.toml"
+
+# Colors
+background = "#282828ff"
+color = "#ffffffff"
+separator = "#ebdbb2ff"
+tag_fg = "#928374ff"
+tag_bg = "#282828ff"
+tag_focused_fg = "#fe8019"
+tag_focused_bg = "#282828ff"
+tag_urgent_fg = "#cc241dff"
+tag_urgent_bg = "#282828ff"
+tag_inactive_fg = "#928374ff"
+tag_inactive_bg = "#282828ff"
+
+# The font and various sizes
+font = "JetBrainsMono Nerd Font 12"
+height = 18
+margin_top = 0
+margin_bottom = 0
+margin_left = -6
+margin_right = 0
+separator_width = 0.0
+tags_r = 0.0
+tags_padding = 6.0
+tags_margin = 0.0
+blocks_r = 0.0
+blocks_overlap = 0.0

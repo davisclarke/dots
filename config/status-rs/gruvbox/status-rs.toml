@@ -1,7 +1,8 @@
+
 icons_format = "{icon}"
 
 [theme]
-theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
+theme = "/home/davisc/.config/status-rs/gruvbox/colors.toml"
 
 
 
@@ -9,35 +10,38 @@ theme = "/home/davisc/.config/status-rs/melange/melange-dark-colors.toml"
 icons = "material-nf"
 
 [icons.overrides]
-music_play = "\U000f03e4" # nf-md-pause
-music_pause = "\U000f040a" # nf-md-play
+# music_play = "\U000f03e4" # nf-md-pause
+# music_pause = "\U000f040a" # nf-md-play
+music_play = "paused:" # nf-md-pause
+music_pause = "play:" # nf-md-play
 # bat = [
 #     "󱊡",
 #     "󱊢",
 #     "󱊣",
 # ]
-bat_charging = "󱐋"
+# bat_charging = "󱐋"
 
 [[block]]
 block = "music"
 format = "{ $play $title.str(max_w:20) - $artist.str(max_w:20) |}"
 
-[[block]]
-block = "notify"
-driver = "swaync"
-format = "{ $icon $notification_count |}"
+# [[block]]
+# block = "notify"
+# driver = "mako"
+# format = "{ $icon $notification_count |}"
+
+# [[block]]
+# block = "time"
+# interval = 5
+# # format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
+# format = " $timestamp.datetime(f:' %R') "
 
 [[block]]
 block = "time"
 interval = 5
 # format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
-format = " $timestamp.datetime(f:' %R') "
-
-[[block]]
-block = "time"
-interval = 5
-# format = " $timestamp.datetime(f:'%a %m/%d,  %R') "
-format = " $timestamp.datetime(f:' %a %m/%d') "
+# format = " $timestamp.datetime(f:' %a %m/%d') "
+format = " $timestamp.datetime(f:'%R, %a %m/%d') "
 # [[block]]
 # block = "taskwarrior"
 # interval = 60
@@ -65,7 +69,12 @@ format = " $timestamp.datetime(f:' %a %m/%d') "
 
 [[block]]
 block = "battery"
-format = " $icon $percentage "
+# format = " $icon $percentage "
+format = " bat: $percentage "
+charging_format = " bat: $percentage (up) "
+not_charging_format = " bat: full "
+full_format = " bat: full "
+empty_format = " bat: empty "
 good = 40
 warning = 20
 critical = 10
@@ -75,14 +84,18 @@ info = 40
 
 [[block]]
 block = "net"
-format = " {󰤉 $signal_strength|󰈀} "
-inactive_format = " 󰣽 Down "
-error_format = "   "
+# format = " {󰤉 $signal_strength|󰈀} "
+format = " {net: $signal_strength|lan} "
+inactive_format = " down "
+# inactive_format = " 󰣽 Down "
+# error_format = "   "
+error_format = " net: err "
 
 [[block]]
 block = "memory"
 # format = " $icon $mem_used_percents.eng(w:1) "
-format = " 󰍛 $mem_used.eng(w:1) " 
+# format = " 󰍛 $mem_used.eng(w:1) " 
+format = " mem: $mem_used.eng(w:1) " 
 interval = 30
 warning_mem = 70
 critical_mem = 90
@@ -90,7 +103,8 @@ critical_mem = 90
 [[block]]
 block = "cpu"
 interval = 3
-format = " $icon $barchart $utilization "
+# format = " $icon $barchart $utilization "
+format = " cpu: $utilization "
 # [[block]]
 # block = "packages"
 # package_manager = ["pacman", "aur"]
@@ -101,16 +115,18 @@ format = " $icon $barchart $utilization "
 # format_up_to_date = "   "
 # aur_command = "paru -Qua"
 # error_format = "   " 
-[[block]]
-block = "temperature"
-format = " $icon {$average}μ: $max "
-interval = 10
-chip = "*-isa-*"
+# [[block]]
+# block = "temperature"
+# # format = " $icon {$average}μ: $max "
+# format = " temp: {$average}μ: $max "
+# interval = 10
+# chip = "*-isa-*"
 
 [[block]]
 block = "sound"
-format = " $icon {$volume|} "
-[[block]]
-block = "backlight"
-device = "intel_backlight"
+# format = " $icon {$volume|} "
+format = " vol: {$volume|mute}"
+# [[block]]
+# block = "backlight"
+# device = "intel_backlight"
 

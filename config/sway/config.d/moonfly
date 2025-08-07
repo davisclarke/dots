@@ -1,0 +1,25 @@
+output * bg #080808 solid_color
+
+bar {
+  position top 
+  height 18
+  mode dock
+  status_padding 0
+  tray_output none
+  font pango:JetBrainsMono Nerd Font 12
+  status_command i3status-rs $HOME/.config/status-rs/moonfly/status-rs.toml
+  strip_workspace_numbers yes
+
+  colors {
+      statusline #202020
+      background #202020
+      inactive_workspace #202020 #202020 #bdbdbd
+      focused_workspace #202020 #202020 #80a0ff
+      urgent_workspace #202020 #202020 #ff5d5d
+      separator #bdbdbd }
+}
+
+client.focused #80a0ff #1c1c1c #80a0ff #1c1c1c #80a0ff
+client.unfocused #404040 #1c1c1c #bdbdbd #1c1c1c #404040
+client.focused_inactive #e3c78a #1c1c1c #e3c78a #1c1c1c #e3c78a
+client.urgent #ff5d5d #1c1c1c #ff5d5d #1c1c1c #ff5d5d

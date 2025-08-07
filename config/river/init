@@ -1,0 +1,199 @@
+#!/bin/sh
+
+# See the river(1), riverctl(1), and rivertile(1) man pages for complete
+# documentation.
+
+
+# Background/Borders
+riverctl background-color 0x1d2021
+
+# Needed for wideriver
+riverctl rule-add ssd
+
+
+# Startup commands
+riverctl spawn "dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+riverctl spawn "wl-clipboard-histry -t"
+riverctl spawn "wl-paste --type text --watch cliphist store"
+riverctl spawn "wl-paste --type images --watch cliphist store"
+riverctl spawn "wlsunset -t 3000 -T 6500 -S 08:00 -s 23:00"
+# riverctl spawn "swayidle -w \
+# 	timeout 400 'waylock -init-color 0x000000' \
+# 	timeout 410 'swaymsg "output * dpms off"' \
+# 	resume 'swaymsg "output * dpms on"' \
+# 	before-sleep 'waylock -init-color 0x000000'"
+# riverctl spawn "i3bar-river"
+# Mouse 
+riverctl xcursor-theme Bibata-Modern-Ice 20
+riverctl hide-cursor timeout 1000
+riverctl hide-cursor when-typing enabled
+riverctl focus-follows-cursor disabled
+
+riverctl map normal Super+Shift Return spawn foot
+
+riverctl map normal Super W spawn librewolf
+# --enable-features=UseOzonePlatform --ozone-platform=wayland 
+
+# Super+Q to close the focused view
+riverctl map normal Super C close
+
+# Super+Shift+E to exit river
+riverctl map normal Super+Shift E exit
+
+# Super+J and Super+K to focus the next/previous view in the layout stack
+riverctl map normal Super J focus-view previous
+riverctl map normal Super K focus-view next
+
+# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
+# view in the layout stack
+riverctl map normal Super+Shift J swap next
+riverctl map normal Super+Shift K swap previous
+
+# Super+Period and Super+Comma to focus the next/previous output
+riverctl map normal Super Period focus-output next
+riverctl map normal Super Comma focus-output previous
+
+# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
+riverctl map normal Super+Shift Period send-to-output next
+riverctl map normal Super+Shift Comma send-to-output previous
+
+# Super+Return to bump the focused view to the top of the layout stack
+riverctl map normal Super Return zoom
+
+riverctl map normal Super H send-layout-cmd wideriver "--ratio -0.05"
+riverctl map normal Super L send-layout-cmd wideriver "--ratio +0.05"
+
+riverctl map normal Super+Shift H send-layout-cmd wideriver "--count +1"
+riverctl map normal Super+Shift L send-layout-cmd wideriver "--count -1"
+
+# Super+Alt+{H,J,K,L} to move views
+riverctl map normal Super+Alt H move left 100
+riverctl map normal Super+Alt J move down 100
+riverctl map normal Super+Alt K move up 100
+riverctl map normal Super+Alt L move right 100
+
+# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
+riverctl map normal Super+Alt+Control H snap left
+riverctl map normal Super+Alt+Control J snap down
+riverctl map normal Super+Alt+Control K snap up
+riverctl map normal Super+Alt+Control L snap right
+
+# Super+Alt+Shift+{H,J,K,L} to resize views
+riverctl map normal Super+Alt+Shift H resize horizontal -100
+riverctl map normal Super+Alt+Shift J resize vertical 100
+riverctl map normal Super+Alt+Shift K resize vertical -100
+riverctl map normal Super+Alt+Shift L resize horizontal 100
+
+# Super + Left Mouse Button to move views
+riverctl map-pointer normal Super BTN_LEFT move-view
+
+# Super + Right Mouse Button to resize views
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Super + Middle Mouse Button to toggle float
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Super+[1-9] to focus tag [0-8]
+    riverctl map normal Super $i set-focused-tags $tags
+
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+    # Super+Control+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
+
+    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+
+# Super+0 to focus all tags
+# Super+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal Super 0 set-focused-tags $all_tags
+riverctl map normal Super+Shift 0 set-view-tags $all_tags
+
+# Super+Space to toggle float
+riverctl map normal Super Space toggle-float
+
+# Super+F to toggle fullscreen
+riverctl map normal Super F toggle-fullscreen
+
+# Super+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super Up    send-layout-cmd wideriver "--layout monocle"
+riverctl map normal Super Right send-layout-cmd wideriver "--layout right"
+riverctl map normal Super Down  send-layout-cmd wideriver "--layout wide"
+riverctl map normal Super Left  send-layout-cmd wideriver "--layout left"
+
+riverctl declare-mode "logout"
+riverctl map normal Super O enter-mode "logout"
+riverctl map logout None R spawn "reboot"
+riverctl map logout None S spawn "poweroff"
+riverctl map logout None L spawn "exit"
+riverctl map logout None U spawn "suspend"
+# Various media key mapping examples for both normal and locked mode which do
+# not have a modifier
+#
+# Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
+# riverctl map normal Super { spawn 'playerctl play-pause'
+# riverctl map normal Super } spawn 'playerctl play-pause'
+# riverctl map normal Super [ spawn 'playerctl previous'
+# riverctl map normal Super ] spawn 'playerctl next'
+riverctl declare-mode "layout"
+riverctl map normal Super M enter-mode "layout"
+
+riverctl map layout None K send-layout-cmd wideriver "--layout monocle"
+riverctl map layout None L send-layout-cmd wideriver "--layout right"
+riverctl map layout None J send-layout-cmd wideriver "--layout wide"
+riverctl map layout None H send-layout-cmd wideriver "--layout left"
+riverctl map layout None Escape enter-mode "normal"
+
+for mode in normal locked
+do
+    # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
+    riverctl map $mode None XF86AudioMute         spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+    riverctl map $mode None XF86AudioMicMute         spawn 'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
+
+    # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+done
+
+
+# Set keyboard repeat rate
+riverctl set-repeat 50 500
+
+# Make all views with an app-id that starts with "float" and title "foo" start floating.
+riverctl rule-add -app-id 'float*' -title 'foo' float
+
+# Make all views with app-id "bar" and any title use client-side decorations
+riverctl rule-add -app-id "bar" csd
+riverctl default-layout wideriver
+riverctl spawn "foot -e fish -i -C zls"
+riverctl spawn "i3bar-river" 
+
+# start layout manager
+wideriver \
+    --layout                       left        \
+    --layout-alt                   monocle     \
+    --stack                        even        \
+    --count-master                 1           \
+    --ratio-master                 0.50        \
+    --count-wide-left              3           \
+    --ratio-wide                   0.35        \
+    --smart-gaps                               \
+    --inner-gaps                   4           \
+    --outer-gaps                   0           \
+    --border-width                 1           \
+    --border-width-monocle         0           \
+    --border-width-smart-gaps      0           \
+    --border-color-focused         "0xfe8019"  \
+    --border-color-focused-monocle "0x282828"  \
+    --border-color-unfocused       "0x9a8a62"  \
+

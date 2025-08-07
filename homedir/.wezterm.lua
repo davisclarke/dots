@@ -5,7 +5,7 @@ local config = {}
 config.hide_mouse_cursor_when_typing = true
 config.force_reverse_video_cursor = true
 -- Fonts and window
-config.font = wezterm.font_with_fallback({ "RobotoMono Nerd Font", "FiraCode Nerd Font" })
+config.font = wezterm.font_with_fallback({ "BlexMono Nerd Font", "FiraCode Nerd Font" })
 -- config.font = "FiraCode Nerd Font"
 config.font_size = 11
 config.freetype_load_target = "Normal"
@@ -21,7 +21,7 @@ config.window_padding = {
 
 -- Wayland
 config.front_end = "OpenGL"
-config.enable_wayland = true
+config.enable_wayland = false
 
 -- Mux server
 config.unix_domains = {

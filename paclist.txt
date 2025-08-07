@@ -1,6 +1,7 @@
 7zip
 alsa-utils
 anki
+autotiling
 base
 base-devel
 bear
@@ -20,6 +21,7 @@ catch2
 ccls
 chafa
 clang
+cliphist
 cmake
 cmatrix
 cowsay
@@ -37,13 +39,14 @@ eza
 fastfetch
 fd
 feh
+firefox
 firewalld
 fish
 flatpak
+floorp-bin
 foot
 fzf
 gcalcli-git
-ghostty
 gimp
 git
 github-cli
@@ -54,12 +57,15 @@ gptfdisk
 greetd
 grim
 grub
+gruvbox-gtk-theme-git
+gruvbox-icon-theme
 gruvbox-material-gtk-theme-git
 gtk-engines
 himalaya
 htop
 hyperfine
 hyprland
+i3bar-river
 i3status-rust
 intel-media-driver
 intel-ucode
@@ -84,6 +90,7 @@ linux
 linux-firmware
 luarocks
 lynx
+mako
 man-db
 maplemono-ttf
 meson
@@ -131,6 +138,7 @@ python-pipx
 qt6-wayland
 reflector
 rio
+river
 rofi-wayland
 rsync
 sbctl
@@ -149,7 +157,6 @@ sway-audio-idle-inhibit-git
 swaybg
 swayidle
 swaylock
-swaync
 swww
 syncthing
 systemd-resolvconf
@@ -178,6 +185,7 @@ texlive-pstricks
 texlive-publishers
 texlive-xetex
 themix-full-git
+thorium-browser-bin
 thunar
 ticktick
 timeshift
@@ -190,6 +198,7 @@ ttf-comic-shanns-nerd
 ttf-dm-mono-git
 ttf-firacode-nerd
 ttf-font-icons
+ttf-hack-nerd
 ttf-ibmplex-mono-nerd
 ttf-iosevka-nerd
 ttf-iosevkatermslab-nerd
@@ -204,14 +213,16 @@ ttf-terminus-nerd
 ttf-victor-mono-nerd
 typometer
 ueberzugpp
+ungoogled-chromium-bin
 unzip
 vim
 virtualbox
 vulkan-intel
 vulkan-radeon
 waybar
-wezterm-git
+waylock
 wget
+wideriver
 wireguard-tools
 wireless_tools
 wl-clipboard

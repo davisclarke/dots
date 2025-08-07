@@ -1,7 +1,8 @@
 include /etc/sway/config.d/*
 
 # Colors handled by dark_theme.sh and light_theme.sh respectively
-include /home/davisc/.config/sway/config.d/jellybeans_dark 
+# include /home/davisc/.config/sway/config.d/jellybeans_dark
+include /home/davisc/.config/sway/config.d/gruvbox
 
 # Variables 
 set $mod Mod4
@@ -23,11 +24,10 @@ exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DES
 
 # Notifications
 exec swaync
-
+# exec autotiling
 # Gamma and nightshift
 # exec wlsunset -t 4100 -T 4101 -l 0 -L 0 -g 1.25
-exec wlsunset -t 3000 -T 6000 -S 08:00 -s 23:00 
-# -g 1.1
+exec wlsunset -t 3000 -T 6500 -S 08:00 -s 23:00 
 # exec wlsunset -t 3900 -T 3901 -l 0 -L 0 -g 1.25
 
 # Font
@@ -70,7 +70,7 @@ exec swayidle -w \
 	timeout 400 'swaylock -f -u -c 000000 -e' \
 	timeout 410 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f -u -c 000000 -e'
+	before-sleep 'waylock -init-color 0x000000'
 
 bindsym $mod+b bar mode invisible 
 bindsym $mod+Space bar mode dock 
@@ -107,10 +107,10 @@ bindsym $mod+o mode "LOGOUT"
 
 # Launchers 
 # bindsym $mod+q exec kitty --single-instance -e fish -i -C nitch 
-bindsym $mod+q exec kitty -e fish -i -C nitch 
+# bindsym $mod+q exec kitty -e fish -i -C nitch 
 # bindsym $mod+q exec wezterm  
 # -- fish -i -C nitch 
-# bindsym $mod+q exec foot -e fish -i -C nitch 
+bindsym $mod+q exec foot -e fish -i -C nitch 
 # bindsym $mod+q exec kitty 
 bindsym $mod+w exec librewolf
 # bindsym $mod+w exec 
@@ -156,9 +156,9 @@ mode "PARENT" {
 
   # Move focused parent container to workspace
   bindsym 1 move container to workspace 1:TRM, mode "default", focus child 
-  bindsym 2 move container to workspace 2:TRM.2, mode "default", focus child 
-  bindsym 3 move container to workspace 3:RSC, mode "default", focus child 
-  bindsym 4 move container to workspace 4:RSC.2, mode "default", focus child 
+  bindsym 2 move container to workspace 2:RSC, mode "default", focus child 
+  bindsym 3 move container to workspace 3:SCH, mode "default", focus child 
+  bindsym 4 move container to workspace 4:WEB, mode "default", focus child 
   bindsym 5 move container to workspace 5:SCH, mode "default", focus child 
   bindsym 6 move container to workspace 6:SCH.2, mode "default", focus child 
   bindsym 7 move container to workspace 7:WEB, mode "default", focus child 
@@ -219,17 +219,18 @@ bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:TRM
-bindsym $mod+Shift+2 move container to workspace 2:TRM.2
-bindsym $mod+Shift+3 move container to workspace 3:RSC
-bindsym $mod+Shift+4 move container to workspace 4:RSC.2
-bindsym $mod+Shift+5 move container to workspace 5:SCH
-bindsym $mod+Shift+6 move container to workspace 6:SCH.2
-bindsym $mod+Shift+7 move container to workspace 7:WEB
-bindsym $mod+Shift+8 move container to workspace 8:MSC
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
+mode "MOVE" {
+  bindsym 1 move container to workspace 1:TRM
+  bindsym 2 move container to workspace 2:TRM.2
+  bindsym 3 move container to workspace 3:RSC
+  bindsym 4 move container to workspace 4:RSC.2
+  bindsym 5 move container to workspace 5:SCH
+  bindsym 6 move container to workspace 6:SCH.2
+  bindsym 7 move container to workspace 7:WEB
+  bindsym 8 move container to workspace 8:MSC
+  bindsym 9 move container to workspace 9
+  bindsym 0 move container to workspace 10
+}
 # Move to adjacent workspace
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
@@ -268,8 +269,7 @@ smart_borders on
 # Start term on login
 workspace number 1
 # exec kitty --single-instance -e fish -i -C nitch 
-exec kitty -e fish -i -C nitch 
-# exec foot -e fish -i -C tmux 
+exec foot -e fish -i -C nitch 
 # exec kitty 
 # exec wezterm  
 
