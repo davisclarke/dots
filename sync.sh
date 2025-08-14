@@ -7,6 +7,7 @@ rsync -r ~/.config/foot/ ./config/foot
 rsync -r ~/.config/i3bar-river/ ./config/i3bar-river
 rsync -r ~/.config/river/ ./config/river
 rsync -r ~/.config/zellij/ ./config/zellij
+rsync -r ~/.config/fish/ ./config/fish
 
 # Homedir dots
 rsync -r ~/.wezterm.lua ./homedir/ 

@@ -1,4 +1,5 @@
 7zip
+alacritty
 alsa-utils
 anki
 autotiling
@@ -43,7 +44,6 @@ firefox
 firewalld
 fish
 flatpak
-floorp-bin
 foot
 fzf
 gcalcli-git
@@ -61,6 +61,7 @@ gruvbox-gtk-theme-git
 gruvbox-icon-theme
 gruvbox-material-gtk-theme-git
 gtk-engines
+helix
 himalaya
 htop
 hyperfine
@@ -195,6 +196,7 @@ tmux
 tokei
 tree
 ttf-comic-shanns-nerd
+ttf-dejavu-nerd
 ttf-dm-mono-git
 ttf-firacode-nerd
 ttf-font-icons

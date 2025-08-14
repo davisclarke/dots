@@ -109,7 +109,7 @@ default_tab_template {
         tab_normal   "#[fg=#a89984,bold] ({index}) {name}"
         tab_active   "#[fg=#fe8019,bold] ({index}) {name}"
 
-        datetime_format "%m/%d, %R"
+        datetime_format "%m/%d,%R"
         datetime "#[fg=#a89984,bold]{format}"
         datetime_timezone "America/Chicago"
       }
